@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  azure-sql:
+    image: "mcr.microsoft.com/azure-sql-edge"
+    shm_size: '2gb'
+    restart: unless-stopped
+    environment:
+      - "ACCEPT_EULA=1"
+      - "MSSQL_SA_PASSWORD=Str0ngPa55w0rd!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - "mssql-azuresql-edge-data:/var/opt/mssql"
+
+volumes:
+  mssql-azuresql-edge-data:
+    driver: local
