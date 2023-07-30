@@ -1,14 +1,14 @@
 language: csharp
-sudo: requried
-dist: trustly
-mono: none
+sudo: required
+dist: trusty
 dotnet: 7.0.101
+
 branches:
- - only:
-  - main
+  only:
+    - main
 
 before_script:
- - dotnet restore
+  - dotnet restore
 
 script:
- - dotnet build src/Bootstrapper/ECommerce.Bootstrapper
+  - dotnet build src/Bootstrapper/ECommerce.Bootstrapper
