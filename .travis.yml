@@ -1,7 +1,8 @@
 language: csharp
 sudo: required
 dist: trusty
-dotnet: 7.0.101
+dotnet: 7.0
+mono: none
 
 branches:
   only:
