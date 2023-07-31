@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "dyhdWKGwcKgNbb+q3Mhf7nDRDirSBSNrtMelqS7znB3rRTMulNu2NpkDrir9pFCjOuSXqZPkxlJR2L5eMUUt1g==",
+  "success": true,
+  "projectFilePath": "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Abstractions/ECommerce.Shared.Abstractions.csproj",
+  "expectedPackageFiles": [
+    "/Users/maciejnet/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/Users/maciejnet/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

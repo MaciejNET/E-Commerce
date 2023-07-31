@@ -1,27 +1,34 @@
+using ECommerce.Bootstrapper;
+using ECommerce.Shared.Infrastructure;
+using ECommerce.Shared.Infrastructure.Modules;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.ConfigureModules();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var assemblies = ModuleLoader.LoadAssemblies(builder.Configuration);
+var modules = ModuleLoader.LoadModules(assemblies);
+
+builder.Services.AddInfrastructure(assemblies, modules);
+
+foreach (var module in modules)
+{
+    module.Register(builder.Services);
+}
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseInfrastructure();
+
+foreach (var module in modules)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    module.Use(app);
 }
 
-app.UseHttpsRedirection();
+app.MapGet("/", () => "ECommerce API");
+app.MapModuleInfo();
 
-app.MapGet("/", context => context.Response.WriteAsync("ECommerce API!"));
-
-app.UseAuthorization();
-
-app.MapControllers();
+assemblies.Clear();
+modules.Clear();
 
 app.Run();
