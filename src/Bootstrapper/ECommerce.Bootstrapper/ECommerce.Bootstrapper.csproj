@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
@@ -12,9 +12,11 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Modules\Products\ECommerce.Modules.Products.Api\ECommerce.Modules.Products.Api.csproj" />
       <ProjectReference Include="..\..\Shared\ECommerce.Shared.Abstractions\ECommerce.Shared.Abstractions.csproj" />
       <ProjectReference Include="..\..\Shared\ECommerce.Shared.Infrastructure\ECommerce.Shared.Infrastructure.csproj" />
     </ItemGroup>

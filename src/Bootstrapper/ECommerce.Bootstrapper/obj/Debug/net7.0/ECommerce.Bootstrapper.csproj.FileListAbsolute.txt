@@ -127,3 +127,7 @@
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Shared.Infrastructure.dll
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Shared.Abstractions.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Shared.Infrastructure.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Products.Api.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Products.Core.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Products.Api.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Products.Core.pdb

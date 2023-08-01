@@ -1,6 +1,6 @@
 namespace ECommerce.Shared.Infrastructure.AzureSqlEdge;
 
-public class SqlServerOptions
+public class AzureSqlEdge
 {
     public string ConnectionString { get; set; }
 }

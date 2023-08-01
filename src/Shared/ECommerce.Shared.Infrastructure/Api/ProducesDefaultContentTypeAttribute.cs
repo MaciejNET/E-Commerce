@@ -8,7 +8,7 @@ public class ProducesDefaultContentTypeAttribute : ProducesAttribute
     {
     }
 
-    public ProducesDefaultContentTypeAttribute(string contentType, params string[] additionalContentTypes) 
+    public ProducesDefaultContentTypeAttribute(params string[] additionalContentTypes) 
         : base("application/json", additionalContentTypes)
     {
     }

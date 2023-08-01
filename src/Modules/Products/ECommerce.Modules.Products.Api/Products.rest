@@ -1,0 +1,60 @@
+@url = http://localhost:5000/products-module
+@productId = b7a18d3f-ef9d-4fae-acfa-3b174a9fcf3a
+@searchText = 
+@categoryId = 
+@minPrice = 
+@maxPrice = 
+
+###
+GET {{url}}
+
+###
+GET {{url}}/Category
+
+###
+POST {{url}}/Category
+Content-Type: application/json
+
+{
+    "name": "Category #1"
+}
+
+###
+GET {{url}}/Product/{{productId}}
+
+###
+GET {{url}}/Product?searchText={{searchText}}&categoryId={{categoryId}}&minPrice={{minPrice}}&maxPrice={{maxPrice}}
+
+
+###
+POST {{url}}/Product
+Content-Type: application/json
+
+{
+    "category": "Category #1",
+    "name": "Test",
+    "manufacturer": "Test",
+    "description": "Lorem Ipsum",
+    "sku": "TEST-SKU-123",
+    "price": 23.99,
+    "imageUrl": "testurl",
+    "stockQuantity": 1000
+}
+
+###
+PUT {{url}}/Product/{{productId}}
+Content-Type: application/json
+
+{
+    "category": "Category #1",
+    "name": "Test",
+    "manufacturer": "Test",
+    "description": "Lorem Ipsum",
+    "sku": "TEST-SKU",
+    "price": 23.99,
+    "imageUrl": "testurl",
+    "stockQuantity": 1000
+}
+
+###
+DELETE {{url}}/Product/{{productId}}
