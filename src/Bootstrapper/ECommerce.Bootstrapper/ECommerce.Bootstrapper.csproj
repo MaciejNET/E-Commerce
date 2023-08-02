@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Modules\Products\ECommerce.Modules.Products.Api\ECommerce.Modules.Products.Api.csproj" />
+      <ProjectReference Include="..\..\Modules\Reviews\ECommerce.Modules.Reviews.Api\ECommerce.Modules.Reviews.Api.csproj" />
       <ProjectReference Include="..\..\Shared\ECommerce.Shared.Abstractions\ECommerce.Shared.Abstractions.csproj" />
       <ProjectReference Include="..\..\Shared\ECommerce.Shared.Infrastructure\ECommerce.Shared.Infrastructure.csproj" />
     </ItemGroup>

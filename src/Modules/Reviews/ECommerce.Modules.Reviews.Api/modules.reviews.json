@@ -1,0 +1,8 @@
+{
+  "reviews": {
+    "module": {
+      "name": "Reviews",
+      "enabled": "true"
+    }
+  }
+}

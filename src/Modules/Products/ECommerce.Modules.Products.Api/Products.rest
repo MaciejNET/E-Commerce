@@ -35,7 +35,7 @@ Content-Type: application/json
     "name": "Test",
     "manufacturer": "Test",
     "description": "Lorem Ipsum",
-    "sku": "TEST-SKU-123",
+    "sku": "TEST-SKU-1111",
     "price": 23.99,
     "imageUrl": "testurl",
     "stockQuantity": 1000

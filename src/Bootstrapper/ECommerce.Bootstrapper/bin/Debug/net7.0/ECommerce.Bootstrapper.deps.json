@@ -9,6 +9,7 @@
       "ECommerce.Bootstrapper/1.0.0": {
         "dependencies": {
           "ECommerce.Modules.Products.Api": "1.0.0",
+          "ECommerce.Modules.Reviews.Api": "1.0.0",
           "ECommerce.Shared.Abstractions": "1.0.0",
           "ECommerce.Shared.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.1",
@@ -1240,6 +1241,22 @@
           "ECommerce.Modules.Products.Core.dll": {}
         }
       },
+      "ECommerce.Modules.Reviews.Api/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Reviews.Core": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Reviews.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Reviews.Core/1.0.0": {
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Reviews.Core.dll": {}
+        }
+      },
       "ECommerce.Shared.Abstractions/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -2153,6 +2170,16 @@
       "sha512": ""
     },
     "ECommerce.Modules.Products.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Reviews.Api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Reviews.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

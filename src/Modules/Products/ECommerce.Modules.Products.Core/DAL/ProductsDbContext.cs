@@ -8,7 +8,7 @@ internal class ProductsDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
 
-    public ProductsDbContext(DbContextOptions options) : base(options)
+    public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
     {
     }
 

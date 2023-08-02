@@ -4,5 +4,15 @@
     &lt;TestId&gt;xUnit::E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901::net7.0::ECommerce.Modules.Products.UnitTests.Services.ProductServiceTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901::net7.0::ECommerce.Modules.Products.UnitTests.Services.CategoryServiceTests.AddAsync_GivenCategoryDoesNotExists_ShouldAddCategorySuccessfully&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901::net7.0::ECommerce.Modules.Products.UnitTests.Services.CategoryServiceTests.AddAsync_GivenExistingCategory_ShouldThrowCategoryAlreadyExistsException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.AddAsync_GivenUserDoesNotPlacedReview_ShouldAddReviewSuccessfully&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.AddAsync_GivenProductDoesNotExists_ShouldThrowProductNotFoundException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.AddAsync_GivenEmailAlreadyHasReview_ShouldThrowReviewExistsException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.AddAsync_GivenUserAlreadyHasReview_ShouldThrowReviewExistsException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.UpdateAsync_ValidReview_ShouldUpdateSuccessfully&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.UpdateAsync_ReviewDoesNotExists_ShouldThrowReviewNotFoundException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.UpdateAsync_GivenDifferentUserId_ShouldThrowReviewUpdateAuthorizationException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.DeleteAsync_GivenValidReviewIdAndUserId_ShouldDeleteReviewSuccessfully&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.DeleteAsync_ReviewDoesNotExists_ShouldThrowReviewNotFoundException&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9032411C-D420-4D81-A4B2-2F4392938D71::net7.0::ECommerce.Modules.Reviews.UnitTests.Services.ReviewServiceTests.DeleteAsync_GivenDifferentUserId_ShouldThrowReviewDeleteAuthorizationException&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,38 @@
+@url = http://localhost:5000/reviews-module
+@reviewId = 118893f4-8bea-4b07-993f-197187b0fe44
+@productId = 749544cf-3a98-4d36-8d4b-2592b036aed8
+@userId = 3cd9e6db-e814-442d-8997-aad7f2cd24c4
+
+###
+GET {{url}}
+
+###
+GET {{url}}/Review/product/{{productId}}
+
+###
+GET {{url}}/Review/user/{{userId}}
+
+###
+POST {{url}}/Review
+Content-Type: application/json
+
+{
+  "name": "Example",
+  "email": "user@example.com",
+  "content": "Test",
+  "rating": 5,
+  "userId": "3cd9e6db-e814-442d-8997-aad7f2cd24c4",
+  "productId": "749544cf-3a98-4d36-8d4b-2592b036aed8"
+}
+
+###
+PUT {{url}}/Review/{{reviewId}}
+Content-Type: application/json
+
+{
+  "content": "Test",
+  "rating": 5
+}
+
+###
+DELETE {{url}}/Review/{{reviewId}}

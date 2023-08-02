@@ -27,6 +27,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Modules.Products.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Modules.Products.UnitTests", "tests\Modules\Products\ECommerce.Modules.Products.UnitTests\ECommerce.Modules.Products.UnitTests.csproj", "{E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reviews", "Reviews", "{54445726-1E83-43E3-BFA1-2563E9F52B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Modules.Reviews.Core", "src\Modules\Reviews\ECommerce.Modules.Reviews.Core\ECommerce.Modules.Reviews.Core.csproj", "{8373810F-4F3B-468C-8384-7CAB105FA2DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Modules.Reviews.Api", "src\Modules\Reviews\ECommerce.Modules.Reviews.Api\ECommerce.Modules.Reviews.Api.csproj", "{52EFE6B5-3440-4248-9067-434D164DA353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Modules.Reviews.UnitTests", "tests\Modules\Reviews\ECommerce.Modules.Reviews.UnitTests\ECommerce.Modules.Reviews.UnitTests.csproj", "{9032411C-D420-4D81-A4B2-2F4392938D71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +54,10 @@ Global
 		{0B40EA60-EE0D-4B5C-90A3-EEE9A82339AE} = {DB022BE9-F8CA-40DF-A9B5-A2DF7D431589}
 		{6A88AA04-39B7-406C-BE84-A294F3BC6DB8} = {DB022BE9-F8CA-40DF-A9B5-A2DF7D431589}
 		{E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901} = {DB022BE9-F8CA-40DF-A9B5-A2DF7D431589}
+		{54445726-1E83-43E3-BFA1-2563E9F52B65} = {CA472331-B9CB-4A30-B8B0-B978A5E0DA5A}
+		{8373810F-4F3B-468C-8384-7CAB105FA2DA} = {54445726-1E83-43E3-BFA1-2563E9F52B65}
+		{52EFE6B5-3440-4248-9067-434D164DA353} = {54445726-1E83-43E3-BFA1-2563E9F52B65}
+		{9032411C-D420-4D81-A4B2-2F4392938D71} = {54445726-1E83-43E3-BFA1-2563E9F52B65}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31366342-75ED-4681-8FE0-A4C8F00C9A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +84,17 @@ Global
 		{E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7F82EC2-80F7-4D61-ABDB-8FF0BCD1F901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8373810F-4F3B-468C-8384-7CAB105FA2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8373810F-4F3B-468C-8384-7CAB105FA2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8373810F-4F3B-468C-8384-7CAB105FA2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8373810F-4F3B-468C-8384-7CAB105FA2DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52EFE6B5-3440-4248-9067-434D164DA353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52EFE6B5-3440-4248-9067-434D164DA353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52EFE6B5-3440-4248-9067-434D164DA353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52EFE6B5-3440-4248-9067-434D164DA353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9032411C-D420-4D81-A4B2-2F4392938D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9032411C-D420-4D81-A4B2-2F4392938D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9032411C-D420-4D81-A4B2-2F4392938D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9032411C-D420-4D81-A4B2-2F4392938D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
