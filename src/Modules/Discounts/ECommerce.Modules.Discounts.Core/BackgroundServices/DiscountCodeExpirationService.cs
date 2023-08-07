@@ -25,17 +25,23 @@ internal class DiscountCodeExpirationService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var scope = _serviceProvider.CreateScope();
-        var discountCodeRepository = scope.ServiceProvider.GetRequiredService<IDiscountCodeRepository>();
-        var currentDate = _clock.CurrentDate();
-        var expiredCodes = await discountCodeRepository.GetExpiredCodesAsync(currentDate);
-
-        foreach (var expiredCode in expiredCodes)
+        while (!stoppingToken.IsCancellationRequested)
         {
-            await _messageBroker.PublishAsync(new DiscountCodeExpired(expiredCode.Id));
-            _logger.LogInformation("Expired discount code: '{Code}' with ID: '{Id}' has been processed", expiredCode.Code, expiredCode.Id);
-        }
 
-        await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+
+            using var scope = _serviceProvider.CreateScope();
+            var discountCodeRepository = scope.ServiceProvider.GetRequiredService<IDiscountCodeRepository>();
+            var currentDate = _clock.CurrentDate();
+            var expiredCodes = await discountCodeRepository.GetExpiredCodesAsync(currentDate);
+
+            foreach (var expiredCode in expiredCodes)
+            {
+                await _messageBroker.PublishAsync(new DiscountCodeExpired(expiredCode.Id));
+                _logger.LogInformation("Expired discount code: '{Code}' with ID: '{Id}' has been processed",
+                    expiredCode.Code, expiredCode.Id);
+            }
+
+            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+        }
     }
 }

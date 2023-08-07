@@ -8,14 +8,14 @@ using Microsoft.Extensions.Logging;
 
 namespace ECommerce.Modules.Discounts.Core.BackgroundServices;
 
-internal class ProductDiscountExpirationService : BackgroundService
+internal class DiscountCodeAddedService : BackgroundService
 {
     private readonly IMessageBroker _messageBroker;
-    private readonly ILogger<ProductDiscountExpirationService> _logger;
+    private readonly ILogger<DiscountCodeAddedService> _logger;
     private readonly IClock _clock;
     private readonly IServiceProvider _serviceProvider;
 
-    public ProductDiscountExpirationService(IMessageBroker messageBroker, ILogger<ProductDiscountExpirationService> logger, IClock clock, IServiceProvider serviceProvider)
+    public DiscountCodeAddedService(IMessageBroker messageBroker, ILogger<DiscountCodeAddedService> logger, IClock clock, IServiceProvider serviceProvider)
     {
         _messageBroker = messageBroker;
         _logger = logger;
@@ -27,18 +27,18 @@ internal class ProductDiscountExpirationService : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-
-
             using var scope = _serviceProvider.CreateScope();
-            var productDiscountRepository = scope.ServiceProvider.GetRequiredService<IProductDiscountRepository>();
+            var productDiscountRepository = scope.ServiceProvider.GetRequiredService<IDiscountCodeRepository>();
             var currentDate = _clock.CurrentDate();
-            var expiredProducts = await productDiscountRepository.GetExpiredProductsAsync(currentDate);
-
-            foreach (var expiredProduct in expiredProducts)
+            var newDiscountCodes = await productDiscountRepository.GetNewlyAddedDiscountCodesAsync(currentDate);
+            
+            foreach (var newDiscountCode in newDiscountCodes)
             {
-                await _messageBroker.PublishAsync(new ProductDiscountExpired(expiredProduct.ProductId));
-                _logger.LogInformation("Expired discount for product with ID: '{Id}' has been processed",
-                    expiredProduct.ProductId);
+                await _messageBroker.PublishAsync(new DiscountCodeAdded(
+                    newDiscountCode.Id,
+                    newDiscountCode.Code,
+                    newDiscountCode.Percentage, newDiscountCode.Products.Select(x => x.Id).ToList()));
+                _logger.LogInformation("New discount code: '{Code}' added", newDiscountCode.Code);
             }
 
             await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);

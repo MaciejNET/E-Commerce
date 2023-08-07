@@ -8,14 +8,14 @@ using Microsoft.Extensions.Logging;
 
 namespace ECommerce.Modules.Discounts.Core.BackgroundServices;
 
-internal class ProductDiscountExpirationService : BackgroundService
+internal class ProductDiscountAddedService : BackgroundService
 {
     private readonly IMessageBroker _messageBroker;
-    private readonly ILogger<ProductDiscountExpirationService> _logger;
+    private readonly ILogger<ProductDiscountAddedService> _logger;
     private readonly IClock _clock;
     private readonly IServiceProvider _serviceProvider;
 
-    public ProductDiscountExpirationService(IMessageBroker messageBroker, ILogger<ProductDiscountExpirationService> logger, IClock clock, IServiceProvider serviceProvider)
+    public ProductDiscountAddedService(IMessageBroker messageBroker, ILogger<ProductDiscountAddedService> logger, IClock clock, IServiceProvider serviceProvider)
     {
         _messageBroker = messageBroker;
         _logger = logger;
@@ -27,18 +27,15 @@ internal class ProductDiscountExpirationService : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-
-
             using var scope = _serviceProvider.CreateScope();
             var productDiscountRepository = scope.ServiceProvider.GetRequiredService<IProductDiscountRepository>();
             var currentDate = _clock.CurrentDate();
-            var expiredProducts = await productDiscountRepository.GetExpiredProductsAsync(currentDate);
-
-            foreach (var expiredProduct in expiredProducts)
+            var newDiscounts = await productDiscountRepository.GetNewlyAddedDiscountsAsync(currentDate);
+            
+            foreach (var newDiscount in newDiscounts)
             {
-                await _messageBroker.PublishAsync(new ProductDiscountExpired(expiredProduct.ProductId));
-                _logger.LogInformation("Expired discount for product with ID: '{Id}' has been processed",
-                    expiredProduct.ProductId);
+                await _messageBroker.PublishAsync(new ProductDiscountAdded(newDiscount.ProductId,newDiscount.NewPrice));
+                _logger.LogInformation("New discount added for product with ID: '{ProductId}'", newDiscount.ProductId);
             }
 
             await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);

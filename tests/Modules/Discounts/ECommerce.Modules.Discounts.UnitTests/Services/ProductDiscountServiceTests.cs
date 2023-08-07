@@ -56,7 +56,6 @@ public class ProductDiscountServiceTests
             dto.ValidFrom,
             dto.ValidTo), Times.Once);
         productDiscountRepositoryMock.Verify(x => x.AddAsync(It.IsAny<ProductDiscount>()), Times.Once);
-        messageBrokerMock.Verify(x => x.PublishAsync(It.IsAny<ProductDiscountAdded>()), Times.Once);
     }
 
     [Fact]

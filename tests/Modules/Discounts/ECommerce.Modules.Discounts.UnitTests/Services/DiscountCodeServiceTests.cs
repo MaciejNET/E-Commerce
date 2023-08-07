@@ -52,7 +52,6 @@ public class DiscountCodeServiceTests
         productRepositoryMock.Verify(x => x.GetAsync(dto.ProductIds), Times.Once);
         discountCodeRepositoryMock.Verify(x => x.ExistsAsync(dto.Code), Times.Once);
         discountCodeRepositoryMock.Verify(x => x.AddAsync(It.IsAny<DiscountCode>()), Times.Once);
-        messageBrokerMock.Verify(x => x.PublishAsync(It.IsAny<DiscountCodeAdded>()), Times.Once);
     }
     
     [Fact]

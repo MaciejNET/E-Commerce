@@ -24,6 +24,7 @@ internal static class Extensions
         services.AddScoped<IProductDiscountRepository, ProductDiscountRepository>();
         services.AddScoped<IProductDiscountService, ProductDiscountService>();
         services.AddScoped<IDiscountCodeService, DiscountCodeService>();
+        services.AddHostedService<ProductDiscountAddedService>();
         services.AddHostedService<DiscountCodeExpirationService>();
         services.AddHostedService<ProductDiscountExpirationService>();
         

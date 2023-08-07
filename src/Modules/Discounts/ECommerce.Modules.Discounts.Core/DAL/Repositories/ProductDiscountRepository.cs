@@ -33,6 +33,11 @@ internal class ProductDiscountRepository : IProductDiscountRepository
     public Task<ProductDiscount> GetAsync(Guid id)
         => _context.ProductDiscounts.SingleOrDefaultAsync(x => x.Id == id);
 
+    public async Task<List<ProductDiscount>> GetNewlyAddedDiscountsAsync(DateTime currentDate)
+        => await _context.ProductDiscounts
+            .Where(x => x.ValidFrom > currentDate.AddMinutes(-1) && x.ValidFrom <= currentDate)
+            .ToListAsync();
+
     public async Task<List<ProductDiscount>> GetExpiredProductsAsync(DateTime currentDate)
         => await _context.ProductDiscounts
             .Where(x => x.ValidTo >= currentDate.AddMinutes(-1) && x.ValidTo <= currentDate)

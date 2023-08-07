@@ -62,10 +62,6 @@ internal class DiscountCodeService : IDiscountCodeService
             ValidTo = dto.ValidTo
         };
         await _discountCodeRepository.AddAsync(discountCode);
-        await _messageBroker.PublishAsync(new DiscountCodeAdded(
-            discountCode.Id,
-            discountCode.Code,
-            discountCode.Percentage, discountCode.Products.Select(x => x.Id).ToList()));
     }
 
     public async Task DeleteAsync(Guid id)

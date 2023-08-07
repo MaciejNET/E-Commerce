@@ -57,7 +57,6 @@ internal class ProductDiscountService : IProductDiscountService
             ValidTo = dto.ValidTo
         };
         await _productDiscountRepository.AddAsync(productDiscount);
-        await _messageBroker.PublishAsync(new ProductDiscountAdded(productDiscount.ProductId, productDiscount.NewPrice));
     }
 
     public async Task DeleteAsync(Guid id)

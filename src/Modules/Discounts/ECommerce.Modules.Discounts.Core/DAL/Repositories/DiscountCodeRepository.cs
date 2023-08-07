@@ -1,3 +1,4 @@
+using System.Collections;
 using ECommerce.Modules.Discounts.Core.Entities;
 using ECommerce.Modules.Discounts.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,11 @@ internal class DiscountCodeRepository : IDiscountCodeRepository
 
     public Task<DiscountCode> GetAsync(Guid id)
         => _context.DiscountCodes.SingleOrDefaultAsync(x => x.Id == id);
+
+    public async Task<List<DiscountCode>> GetNewlyAddedDiscountCodesAsync(DateTime currentDate)
+        => await _context.DiscountCodes
+            .Where(x => x.ValidFrom > currentDate.AddMinutes(-1) && x.ValidFrom <= currentDate)
+            .ToListAsync();
 
     public async Task<List<DiscountCode>> GetExpiredCodesAsync(DateTime currentDate)
         => await _context.DiscountCodes
