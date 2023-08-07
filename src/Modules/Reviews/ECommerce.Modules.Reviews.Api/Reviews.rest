@@ -1,6 +1,6 @@
 @url = http://localhost:5000/reviews-module
-@reviewId = 118893f4-8bea-4b07-993f-197187b0fe44
-@productId = 749544cf-3a98-4d36-8d4b-2592b036aed8
+@reviewId = d8caa408-9a16-461c-8483-c6ac7236c006
+@productId = e8a57666-1987-450f-bba1-b273d6b9f7ac
 @userId = 3cd9e6db-e814-442d-8997-aad7f2cd24c4
 
 ###
@@ -22,7 +22,7 @@ Content-Type: application/json
   "content": "Test",
   "rating": 5,
   "userId": "3cd9e6db-e814-442d-8997-aad7f2cd24c4",
-  "productId": "749544cf-3a98-4d36-8d4b-2592b036aed8"
+  "productId": "e8a57666-1987-450f-bba1-b273d6b9f7ac"
 }
 
 ###

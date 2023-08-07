@@ -1856,6 +1856,32 @@
           }
         }
       },
+      "ECommerce.Modules.Discounts.Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Discounts.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Discounts.Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Discounts.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Discounts.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Discounts.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Discounts.Core.dll": {}
+        }
+      },
       "ECommerce.Modules.Products.Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -5367,6 +5393,16 @@
         "version.txt"
       ]
     },
+    "ECommerce.Modules.Discounts.Api/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj",
+      "msbuildProject": "../../Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj"
+    },
+    "ECommerce.Modules.Discounts.Core/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Discounts/ECommerce.Modules.Discounts.Core/ECommerce.Modules.Discounts.Core.csproj",
+      "msbuildProject": "../../Modules/Discounts/ECommerce.Modules.Discounts.Core/ECommerce.Modules.Discounts.Core.csproj"
+    },
     "ECommerce.Modules.Products.Api/1.0.0": {
       "type": "project",
       "path": "../../Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj",
@@ -5400,6 +5436,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "ECommerce.Modules.Discounts.Api >= 1.0.0",
       "ECommerce.Modules.Products.Api >= 1.0.0",
       "ECommerce.Modules.Reviews.Api >= 1.0.0",
       "ECommerce.Shared.Abstractions >= 1.0.0",
@@ -5434,6 +5471,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj": {
+              "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj"
+            },
             "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj": {
               "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj"
             },

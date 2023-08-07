@@ -10,10 +10,10 @@ Project created to study and practice modular monolith and DDD concepts.
 ![image](EcommerceArchitecture.jpg)
 
 ## Modules
-|Work progrss|Done|
-|-------------|----|
-|Users|❌|
-|Discounts|⏳|
+|Module|Work progress|
+|:-------------:|:----:|
+|Users|⏳|
+|Discounts|✅|
 |Products|✅|
 |Orders|❌|
 |Returns|❌|

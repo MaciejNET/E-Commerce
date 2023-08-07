@@ -1,0 +1,35 @@
+@url = http://localhost:5000/discounts-module
+@productDiscountId = 9bcd7134-08f7-4b2d-a683-5e2a827a6b9c
+@discountCodeId = 
+
+###
+POST {{url}}/ProductDiscount
+Content-Type: application/json
+
+{
+    "newPrice": 14.22,
+    "productId": "e8a57666-1987-450f-bba1-b273d6b9f7ac",
+    "validFrom": "2023-08-20T12:00:00",
+    "validTo": "2023-08-29T12:00:00"
+}
+
+###
+DELETE {{url}}/ProductDiscount/{{productDiscountId}}
+
+###
+POST {{url}}/DiscountCode
+Content-Type: application/json
+
+{
+    "code": "testcode33",
+    "description": "test code",
+    "percentage": 34,
+    "productIds": [ 
+        "e8a57666-1987-450f-bba1-b273d6b9f7ac"
+    ],
+    "validFrom": "2023-08-20T12:00:00",
+    "validTo": "2023-08-29T12:00:00"
+}
+
+###
+DELETE {{url}}/DiscountCode/{{discountCodeId}}

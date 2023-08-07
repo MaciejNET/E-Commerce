@@ -8,7 +8,10 @@ internal sealed class ProductConfiguration : IEntityTypeConfiguration<Product>
 {
     public void Configure(EntityTypeBuilder<Product> builder)
     {
-        builder.Property(x => x.Price)
+        builder.Property(x => x.StandardPrice)
+            .HasPrecision(18, 2);
+        
+        builder.Property(x => x.DiscountedPrice)
             .HasPrecision(18, 2);
     }
 }

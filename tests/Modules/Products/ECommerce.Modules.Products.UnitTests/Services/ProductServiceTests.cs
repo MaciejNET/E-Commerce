@@ -144,7 +144,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 36.33M,
+            StandardPrice = 36.33M,
             StockQuantity = 111,
             ImageUrl = "test/test"
         };
@@ -235,7 +235,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 36.33M,
+            StandardPrice = 36.33M,
             StockQuantity = 111,
             ImageUrl = "test/test"
         };
@@ -287,7 +287,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 36.33M,
+            StandardPrice = 36.33M,
             StockQuantity = 111,
             ImageUrl = "test/test"
         };

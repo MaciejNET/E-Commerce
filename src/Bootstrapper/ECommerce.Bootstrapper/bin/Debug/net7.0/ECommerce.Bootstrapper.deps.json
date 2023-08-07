@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "ECommerce.Bootstrapper/1.0.0": {
         "dependencies": {
+          "ECommerce.Modules.Discounts.Api": "1.0.0",
           "ECommerce.Modules.Products.Api": "1.0.0",
           "ECommerce.Modules.Reviews.Api": "1.0.0",
           "ECommerce.Shared.Abstractions": "1.0.0",
@@ -1225,6 +1226,22 @@
           }
         }
       },
+      "ECommerce.Modules.Discounts.Api/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Discounts.Core": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Discounts.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Discounts.Core/1.0.0": {
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Discounts.Core.dll": {}
+        }
+      },
       "ECommerce.Modules.Products.Api/1.0.0": {
         "dependencies": {
           "ECommerce.Modules.Products.Core": "1.0.0"
@@ -2163,6 +2180,16 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "ECommerce.Modules.Discounts.Api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Discounts.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ECommerce.Modules.Products.Api/1.0.0": {
       "type": "project",

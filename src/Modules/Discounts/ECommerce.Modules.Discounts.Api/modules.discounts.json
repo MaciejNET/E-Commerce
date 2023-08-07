@@ -1,0 +1,8 @@
+{
+  "discounts": {
+    "module": {
+      "name" : "Discounts",
+      "enabled": true
+    }
+  }
+}

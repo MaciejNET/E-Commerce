@@ -56,13 +56,13 @@ internal class ProductService : IProductService
             Manufacturer = dto.Manufacturer,
             Description = dto.Description,
             Sku = dto.Sku,
-            Price = dto.Price,
+            StandardPrice = dto.Price,
             StockQuantity = dto.StockQuantity,
             ImageUrl = dto.ImageUrl
         };
 
         await _productRepository.AddAsync(product);
-        await _messageBroker.PublishAsync(new ProductCreated(product.Id, product.Name, product.Sku, product.Price, product.StockQuantity));
+        await _messageBroker.PublishAsync(new ProductCreated(product.Id, product.Name, product.Sku, product.StandardPrice, product.StockQuantity));
     }
 
     public async Task UpdateAsync(ProductDetailsDto dto)
@@ -78,7 +78,7 @@ internal class ProductService : IProductService
         product.Manufacturer = dto.Manufacturer;
         product.Description = dto.Description;
         product.Sku = dto.Sku;
-        product.Price = dto.Price;
+        product.StandardPrice = dto.Price;
         product.StockQuantity = dto.StockQuantity;
         product.ImageUrl = dto.ImageUrl;
 
@@ -93,7 +93,7 @@ internal class ProductService : IProductService
         product.CategoryId = category.Id;
 
         await _productRepository.UpdateAsync(product);
-        await _messageBroker.PublishAsync(new ProductUpdated(product.Id, product.Name, product.Sku, product.Price, product.StockQuantity));
+        await _messageBroker.PublishAsync(new ProductUpdated(product.Id, product.Name, product.Sku, product.StandardPrice, product.StockQuantity));
     }
 
     public async Task DeleteAsync(Guid id)
@@ -119,7 +119,8 @@ internal class ProductService : IProductService
             Manufacturer = product.Manufacturer,
             Description = product.Description,
             Sku = product.Sku,
-            Price = product.Price,
+            StandardPrice = product.StandardPrice,
+            DiscountedPrice = product.DiscountedPrice,
             ImageUrl = product.ImageUrl,
             IsAvailable = product.IsAvailable
         };
