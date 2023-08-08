@@ -12,11 +12,11 @@ Project created to study and practice modular monolith and DDD concepts.
 ## Modules
 |Module|Work progress|
 |:-------------:|:----:|
-|Users|⏳|
+|Users|✅|
 |Discounts|✅|
 |Products|✅|
 |Orders|❌|
-|Returns|❌|
+|Returns|⏳|
 |Reviews|✅|
 
 ## Technologies
