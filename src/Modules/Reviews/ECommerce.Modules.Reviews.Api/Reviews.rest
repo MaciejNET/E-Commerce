@@ -2,6 +2,7 @@
 @reviewId = d8caa408-9a16-461c-8483-c6ac7236c006
 @productId = e8a57666-1987-450f-bba1-b273d6b9f7ac
 @userId = 3cd9e6db-e814-442d-8997-aad7f2cd24c4
+@accessToken = 
 
 ###
 GET {{url}}
@@ -10,23 +11,25 @@ GET {{url}}
 GET {{url}}/Review/product/{{productId}}
 
 ###
-GET {{url}}/Review/user/{{userId}}
+GET {{url}}/Review/user
+Authorization: Bearer {{accessToken}}
 
 ###
 POST {{url}}/Review
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
   "name": "Example",
-  "email": "user@example.com",
+  "email": "testreview@example.com",
   "content": "Test",
   "rating": 5,
-  "userId": "3cd9e6db-e814-442d-8997-aad7f2cd24c4",
   "productId": "e8a57666-1987-450f-bba1-b273d6b9f7ac"
 }
 
 ###
 PUT {{url}}/Review/{{reviewId}}
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
@@ -36,3 +39,4 @@ Content-Type: application/json
 
 ###
 DELETE {{url}}/Review/{{reviewId}}
+Authorization: Bearer {{accessToken}}

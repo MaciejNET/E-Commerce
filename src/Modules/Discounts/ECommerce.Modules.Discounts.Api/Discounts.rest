@@ -1,9 +1,11 @@
 @url = http://localhost:5000/discounts-module
 @productDiscountId = 9bcd7134-08f7-4b2d-a683-5e2a827a6b9c
 @discountCodeId = 
+@accessToken =
 
 ###
 POST {{url}}/ProductDiscount
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
@@ -15,9 +17,11 @@ Content-Type: application/json
 
 ###
 DELETE {{url}}/ProductDiscount/{{productDiscountId}}
+Authorization: Bearer {{accessToken}}
 
 ###
 POST {{url}}/DiscountCode
+Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
@@ -33,3 +37,4 @@ Content-Type: application/json
 
 ###
 DELETE {{url}}/DiscountCode/{{discountCodeId}}
+Authorization: Bearer {{accessToken}}

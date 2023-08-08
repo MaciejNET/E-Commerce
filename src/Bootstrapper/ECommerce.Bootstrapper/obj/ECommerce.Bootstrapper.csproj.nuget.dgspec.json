@@ -35,6 +35,9 @@
               "/Users/maciejnet/Projects/E-Commerce/src/Modules/Reviews/ECommerce.Modules.Reviews.Api/ECommerce.Modules.Reviews.Api.csproj": {
                 "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Reviews/ECommerce.Modules.Reviews.Api/ECommerce.Modules.Reviews.Api.csproj"
               },
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/ECommerce.Modules.Users.Api.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/ECommerce.Modules.Users.Api.csproj"
+              },
               "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Abstractions/ECommerce.Shared.Abstractions.csproj": {
                 "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Abstractions/ECommerce.Shared.Abstractions.csproj"
               },
@@ -434,6 +437,120 @@
         }
       }
     },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/ECommerce.Modules.Users.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/ECommerce.Modules.Users.Api.csproj",
+        "projectName": "ECommerce.Modules.Users.Api",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/ECommerce.Modules.Users.Api.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/ECommerce.Modules.Users.Core.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/ECommerce.Modules.Users.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/ECommerce.Modules.Users.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/ECommerce.Modules.Users.Core.csproj",
+        "projectName": "ECommerce.Modules.Users.Core",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/ECommerce.Modules.Users.Core.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Infrastructure/ECommerce.Shared.Infrastructure.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Infrastructure/ECommerce.Shared.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Abstractions/ECommerce.Shared.Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -541,6 +658,14 @@
             "Humanizer": {
               "target": "Package",
               "version": "[2.14.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

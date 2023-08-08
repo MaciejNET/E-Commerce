@@ -3,7 +3,9 @@ using System.Runtime.CompilerServices;
 using ECommerce.Shared.Abstractions.Modules;
 using ECommerce.Shared.Abstractions.Time;
 using ECommerce.Shared.Infrastructure.Api;
+using ECommerce.Shared.Infrastructure.Auth;
 using ECommerce.Shared.Infrastructure.AzureSqlEdge;
+using ECommerce.Shared.Infrastructure.Contexts;
 using ECommerce.Shared.Infrastructure.Events;
 using ECommerce.Shared.Infrastructure.Exceptions;
 using ECommerce.Shared.Infrastructure.Messaging;
@@ -11,6 +13,7 @@ using ECommerce.Shared.Infrastructure.Modules;
 using ECommerce.Shared.Infrastructure.Services;
 using ECommerce.Shared.Infrastructure.Time;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -62,8 +65,12 @@ internal static class Extensions
             });
         });
 
+        services.AddSingleton<IContextFactory, ContextFactory>();
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddTransient(sp => sp.GetRequiredService<IContextFactory>().Create());
         services.AddModuleInfo(modules);
         services.AddModuleRequests(assemblies);
+        services.AddAuth(modules);
         services.AddErrorHandling();
         services.AddEvents(assemblies);
         services.AddMessaging();
@@ -104,7 +111,9 @@ internal static class Extensions
             swagger.DocumentTitle = "ECommerce API";
         });
         app.MapControllers();
+        app.UseAuthentication();
         app.UseRouting();
+        app.UseAuthorization();
         return app;
     }
     

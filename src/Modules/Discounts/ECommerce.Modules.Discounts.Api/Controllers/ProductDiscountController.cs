@@ -1,11 +1,14 @@
 using ECommerce.Modules.Discounts.Core.DTO;
 using ECommerce.Modules.Discounts.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Modules.Discounts.Api.Controllers;
 
+[Authorize(Policy = Policy)]
 internal class ProductDiscountController : BaseController
 {
+    private const string Policy = "discounts";
     private readonly IProductDiscountService _productDiscountService;
 
     public ProductDiscountController(IProductDiscountService productDiscountService)

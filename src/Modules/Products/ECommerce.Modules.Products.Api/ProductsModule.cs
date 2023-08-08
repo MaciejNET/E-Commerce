@@ -10,7 +10,7 @@ internal class ProductsModule : IModule
     public const string BasePath = "products-module";
     public string Name { get; } = "Products";
     public string Path => BasePath;
-    public IEnumerable<string> Policies => new[] {"products", "category"};
+    public IEnumerable<string> Policies => new[] {"products", "categories"};
 
     public void Register(IServiceCollection services)
     {

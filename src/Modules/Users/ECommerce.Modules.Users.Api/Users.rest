@@ -1,0 +1,32 @@
+@url = http://localhost:5000/users-module
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0YzUzYjU5OS0wNmE0LTQ3ZWItOGM4ZC03YTRiYTM5NTYxYjUiLCJ1bmlxdWVfbmFtZSI6IjRjNTNiNTk5LTA2YTQtNDdlYi04YzhkLTdhNGJhMzk1NjFiNSIsImp0aSI6IjlhOGU1MThhLWQwYmMtNDk2NC04OGIwLTY4YTRkM2NjNjYxNiIsImlhdCI6IjE2OTE0OTU2NTk5NDUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsInBlcm1pc3Npb25zIjpbInVzZXJzIiwicHJvZHVjdHMiLCJyZXZpZXdzIiwiZGlzY291bnRzIiwiY2F0ZWdvcmllcyJdLCJuYmYiOjE2OTE0OTU2NTksImV4cCI6MTY5MTQ5OTI1OSwiaXNzIjoiZWNvbW1lcmNlIn0.9Nl7FEB6xvsd_M9Xb10GmNbaq0gIC78muLRR3iie6dE
+
+###
+GET {{url}}
+
+###
+GET {{url}}/Account
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Account/sign-up
+Content-Type: application/json
+
+{
+    "fullName": "Test Test",
+    "email": "test@email.com",
+    "password": "Pa55w0rd!",
+    "role": "admin",
+    "claims": {
+        "permissions": ["users", "products", "reviews", "discounts", "categories"]
+    }
+}
+
+###
+POST {{url}}/Account/sign-in
+Content-Type: application/json
+
+{
+    "email": "test@email.com",
+    "password": "Pa55w0rd!"
+}

@@ -1,11 +1,14 @@
 using ECommerce.Modules.Products.Core.DTO;
 using ECommerce.Modules.Products.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Modules.Products.Api.Controllers;
 
+[Authorize(Policy = Policy)]
 internal class ProductController : BaseController
 {
+    private const string Policy = "products";
     private readonly IProductService _productService;
 
     public ProductController(IProductService productService)
@@ -14,10 +17,12 @@ internal class ProductController : BaseController
     }
 
     [HttpGet("{id:guid}")]
+    [AllowAnonymous]
     public async Task<ActionResult<ProductDto>> Get(Guid id)
         => OkOrNotFound(await _productService.GetAsync(id));
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<ProductDto>>> Browse(string? searchText, Guid? categoryId, decimal? minPrice, decimal? maxPrice)
         => Ok(await _productService.BrowseAsync(searchText, categoryId, minPrice, maxPrice));
 
