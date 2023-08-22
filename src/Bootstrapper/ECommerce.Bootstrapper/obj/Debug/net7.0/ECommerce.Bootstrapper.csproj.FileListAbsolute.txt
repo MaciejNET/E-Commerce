@@ -148,3 +148,11 @@
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Users.Core.dll
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Users.Api.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Users.Core.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Api.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Application.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Domain.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Infrastructure.dll
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Api.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Application.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Domain.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Orders.Infrastructure.pdb

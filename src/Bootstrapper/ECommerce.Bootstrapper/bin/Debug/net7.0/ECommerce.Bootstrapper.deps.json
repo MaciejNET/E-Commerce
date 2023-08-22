@@ -9,6 +9,7 @@
       "ECommerce.Bootstrapper/1.0.0": {
         "dependencies": {
           "ECommerce.Modules.Discounts.Api": "1.0.0",
+          "ECommerce.Modules.Orders.Api": "1.0.0",
           "ECommerce.Modules.Products.Api": "1.0.0",
           "ECommerce.Modules.Reviews.Api": "1.0.0",
           "ECommerce.Modules.Users.Api": "1.0.0",
@@ -1288,6 +1289,38 @@
           "ECommerce.Modules.Discounts.Core.dll": {}
         }
       },
+      "ECommerce.Modules.Orders.Api/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Orders.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Orders.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Application/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Orders.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Orders.Application.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Domain/1.0.0": {
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Orders.Domain.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Orders.Application": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Orders.Infrastructure.dll": {}
+        }
+      },
       "ECommerce.Modules.Products.Api/1.0.0": {
         "dependencies": {
           "ECommerce.Modules.Products.Core": "1.0.0"
@@ -2272,6 +2305,26 @@
       "sha512": ""
     },
     "ECommerce.Modules.Discounts.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Orders.Api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Orders.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Orders.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Orders.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

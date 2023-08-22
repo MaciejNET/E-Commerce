@@ -62,7 +62,7 @@ internal class ProductService : IProductService
         };
 
         await _productRepository.AddAsync(product);
-        await _messageBroker.PublishAsync(new ProductCreated(product.Id, product.Name, product.Sku, product.StandardPrice, product.StockQuantity));
+        await _messageBroker.PublishAsync(new ProductCreated(product.Id, product.Name, product.Sku, product.DiscountedPrice ?? product.StandardPrice, product.StockQuantity));
     }
 
     public async Task UpdateAsync(ProductDetailsDto dto)

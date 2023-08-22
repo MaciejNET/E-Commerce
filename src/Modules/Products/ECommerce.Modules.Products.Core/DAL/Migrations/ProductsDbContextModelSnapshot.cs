@@ -69,7 +69,7 @@ namespace ECommerce.Modules.Products.Core.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sku")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("StandardPrice")
                         .HasPrecision(18, 2)
@@ -81,6 +81,10 @@ namespace ECommerce.Modules.Products.Core.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Sku")
+                        .IsUnique()
+                        .HasFilter("[Sku] IS NOT NULL");
 
                     b.ToTable("Products", "products");
                 });

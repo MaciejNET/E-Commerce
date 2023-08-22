@@ -15,7 +15,7 @@ Project created to study and practice modular monolith and DDD concepts.
 |Users|✅|
 |Discounts|✅|
 |Products|✅|
-|Orders|❌|
+|Orders|✅|
 |Returns|⏳|
 |Reviews|✅|
 

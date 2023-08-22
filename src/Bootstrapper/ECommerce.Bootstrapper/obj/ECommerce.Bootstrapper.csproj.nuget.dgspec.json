@@ -20,6 +20,7 @@
           "net7.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -28,6 +29,9 @@
             "projectReferences": {
               "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj": {
                 "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj"
+              },
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj"
               },
               "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj": {
                 "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj"
@@ -91,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -148,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -205,7 +209,235 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj",
+        "projectName": "ECommerce.Modules.Orders.Api",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj",
+        "projectName": "ECommerce.Modules.Orders.Application",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj",
+        "projectName": "ECommerce.Modules.Orders.Domain",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Infrastructure/ECommerce.Shared.Infrastructure.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Shared/ECommerce.Shared.Infrastructure/ECommerce.Shared.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj",
+        "projectName": "ECommerce.Modules.Orders.Infrastructure",
+        "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj",
+        "packagesPath": "/Users/maciejnet/.nuget/packages/",
+        "outputPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/maciejnet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj": {
+                "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -262,7 +494,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -319,7 +551,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -376,7 +608,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -433,7 +665,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -490,7 +722,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -547,7 +779,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -613,7 +845,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -708,7 +940,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     }

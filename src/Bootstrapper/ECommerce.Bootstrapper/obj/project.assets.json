@@ -1932,6 +1932,58 @@
           "bin/placeholder/ECommerce.Modules.Discounts.Core.dll": {}
         }
       },
+      "ECommerce.Modules.Orders.Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Orders.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Orders.Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Orders.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Orders.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Orders.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Orders.Application.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Orders.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Orders.Domain.dll": {}
+        }
+      },
+      "ECommerce.Modules.Orders.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Orders.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Orders.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Orders.Infrastructure.dll": {}
+        }
+      },
       "ECommerce.Modules.Products.Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -5534,6 +5586,26 @@
       "path": "../../Modules/Discounts/ECommerce.Modules.Discounts.Core/ECommerce.Modules.Discounts.Core.csproj",
       "msbuildProject": "../../Modules/Discounts/ECommerce.Modules.Discounts.Core/ECommerce.Modules.Discounts.Core.csproj"
     },
+    "ECommerce.Modules.Orders.Api/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj",
+      "msbuildProject": "../../Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj"
+    },
+    "ECommerce.Modules.Orders.Application/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj",
+      "msbuildProject": "../../Modules/Orders/ECommerce.Modules.Orders.Application/ECommerce.Modules.Orders.Application.csproj"
+    },
+    "ECommerce.Modules.Orders.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj",
+      "msbuildProject": "../../Modules/Orders/ECommerce.Modules.Orders.Domain/ECommerce.Modules.Orders.Domain.csproj"
+    },
+    "ECommerce.Modules.Orders.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj",
+      "msbuildProject": "../../Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj"
+    },
     "ECommerce.Modules.Products.Api/1.0.0": {
       "type": "project",
       "path": "../../Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj",
@@ -5578,6 +5650,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "ECommerce.Modules.Discounts.Api >= 1.0.0",
+      "ECommerce.Modules.Orders.Api >= 1.0.0",
       "ECommerce.Modules.Products.Api >= 1.0.0",
       "ECommerce.Modules.Reviews.Api >= 1.0.0",
       "ECommerce.Modules.Users.Api >= 1.0.0",
@@ -5607,6 +5680,7 @@
         "net7.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5615,6 +5689,9 @@
           "projectReferences": {
             "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj": {
               "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/ECommerce.Modules.Discounts.Api.csproj"
+            },
+            "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj": {
+              "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj"
             },
             "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj": {
               "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj"
@@ -5678,7 +5755,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
       }
     }
   }

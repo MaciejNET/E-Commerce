@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YQUNpi8+PfOygGa4P27ScD0mFvfBrD7bOVg4vmJLckRdrNG8mS0zT9LCYCN1G2az0T7pwWZGVmDnXitcejNB5Q==",
+  "dgSpecHash": "diAj2xP/RPZJlXKF4m9RDqSnY8w9ZtCDSvM5jgYHxr76BlX357TcgQ5H45l7lO4/gjZv7io5TuwmLlRb3nsSyQ==",
   "success": true,
   "projectFilePath": "/Users/maciejnet/Projects/E-Commerce/tests/Modules/Discounts/ECommerce.Modules.Discounts.UnitTests/ECommerce.Modules.Discounts.UnitTests.csproj",
   "expectedPackageFiles": [
