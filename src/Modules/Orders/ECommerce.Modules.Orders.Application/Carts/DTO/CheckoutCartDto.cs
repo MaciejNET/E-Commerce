@@ -1,5 +1,5 @@
 using ECommerce.Modules.Orders.Application.Shared.DTO;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 
 namespace ECommerce.Modules.Orders.Application.Carts.DTO;
 

@@ -1,6 +1,7 @@
 using ECommerce.Modules.Orders.Application.Shared.DTO;
 using ECommerce.Modules.Orders.Domain.Orders.Entities;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 
 namespace ECommerce.Modules.Orders.Application.Orders.DTO;
 

@@ -1,6 +1,5 @@
 using ECommerce.Modules.Orders.Application.Carts.Exceptions;
 using ECommerce.Modules.Orders.Domain.Carts.Repositories;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
 using ECommerce.Shared.Abstractions.Commands;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 

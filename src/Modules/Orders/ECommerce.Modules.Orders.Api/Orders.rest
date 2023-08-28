@@ -1,0 +1,122 @@
+@url = http://localhost:5000/orders-module
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZWI5OGMxMC03MjBhLTRiNjktYjliYy0wODA2OGY4YjlhNGEiLCJ1bmlxdWVfbmFtZSI6ImFlYjk4YzEwLTcyMGEtNGI2OS1iOWJjLTA4MDY4ZjhiOWE0YSIsImp0aSI6ImY2OWVlYjgwLWU1ZDEtNDczNi1iYmMxLTdlMmFiNjI1M2QyYyIsImlhdCI6IjE2OTMyMjI4ODEzNTgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsInBlcm1pc3Npb25zIjpbInVzZXJzIiwicHJvZHVjdHMiLCJyZXZpZXdzIiwiZGlzY291bnRzIiwiY2F0ZWdvcmllcyIsInJldHVybnMiLCJvcmRlcnMiLCJjYXJ0cyJdLCJuYmYiOjE2OTMyMjI4ODEsImV4cCI6MTY5MzIyNjQ4MSwiaXNzIjoiZWNvbW1lcmNlIn0.VcolPTZWXA0xDZdp4jeYTwmbmQBpfUy4qcMcPbXIz8A
+@productId = 63a50b88-9baa-4c11-98c8-a15360c2b8bb
+@cartItemId = b906ef44-5412-43e9-bead-bbe871b936dc
+@orderId = 
+###
+GET {{url}}
+
+###
+GET {{url}}/Cart
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Cart/add-product
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "productId": "63a50b88-9baa-4c11-98c8-a15360c2b8bb",
+    "quantity": 2
+}
+
+###
+POST {{url}}/Cart/remove-product
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "productId": "63a50b88-9baa-4c11-98c8-a15360c2b8bb"
+}
+
+###
+PUT {{url}}/Cart/{{cartItemId}}/increase-quantity
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "quantity": 2
+}
+
+###
+PUT {{url}}/Cart/{{cartItemId}}/decrease-quantity
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "quantity": 2
+}
+
+###
+POST {{url}}/Cart/checkout
+Authorization: Bearer {{accessToken}}
+
+###
+PUT {{url}}/Cart/clear
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{url}}/CheckoutCart
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/CheckoutCart/add-payment
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "paymentMethod": "Cashless"
+}
+
+###
+POST {{url}}/CheckoutCart/add-shipment
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "city": "Test",
+    "streetName": "Test",
+    "streetNumber": 123,
+    "receiverFullName": "Test Test"
+}
+
+###
+POST {{url}}/CheckoutCart/apply-discount
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "code": "test"
+}
+
+###
+POST {{url}}/CheckoutCart/place-order
+Authorization: Bearer {{accessToken}}
+
+###
+DELETE  {{url}}/CheckoutCart/cancel-checkout
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{url}}/Order/{{orderId}}
+Authorization: Bearer {{accessToken}}
+
+###
+GET {{url}}/Order
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Order/{{orderId}}/start-processing
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Order/{{orderId}}/send
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Order/{{orderId}}/complete
+Authorization: Bearer {{accessToken}}
+
+###
+POST {{url}}/Order/{{orderId}}/cancel
+Authorization: Bearer {{accessToken}}

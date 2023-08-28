@@ -2010,6 +2010,58 @@
           "bin/placeholder/ECommerce.Modules.Products.Core.dll": {}
         }
       },
+      "ECommerce.Modules.Returns.Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Returns.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Returns.Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Returns.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Returns.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Returns.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Returns.Application.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Returns.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Returns.Domain.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ECommerce.Modules.Returns.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.Modules.Returns.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.Modules.Returns.Infrastructure.dll": {}
+        }
+      },
       "ECommerce.Modules.Reviews.Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -5616,6 +5668,26 @@
       "path": "../../Modules/Products/ECommerce.Modules.Products.Core/ECommerce.Modules.Products.Core.csproj",
       "msbuildProject": "../../Modules/Products/ECommerce.Modules.Products.Core/ECommerce.Modules.Products.Core.csproj"
     },
+    "ECommerce.Modules.Returns.Api/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Returns/ECommerce.Modules.Returns.Api/ECommerce.Modules.Returns.Api.csproj",
+      "msbuildProject": "../../Modules/Returns/ECommerce.Modules.Returns.Api/ECommerce.Modules.Returns.Api.csproj"
+    },
+    "ECommerce.Modules.Returns.Application/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Returns/ECommerce.Modules.Returns.Application/ECommerce.Modules.Returns.Application.csproj",
+      "msbuildProject": "../../Modules/Returns/ECommerce.Modules.Returns.Application/ECommerce.Modules.Returns.Application.csproj"
+    },
+    "ECommerce.Modules.Returns.Domain/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Returns/ECommerce.Modules.Returns.Domain/ECommerce.Modules.Returns.Domain.csproj",
+      "msbuildProject": "../../Modules/Returns/ECommerce.Modules.Returns.Domain/ECommerce.Modules.Returns.Domain.csproj"
+    },
+    "ECommerce.Modules.Returns.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../../Modules/Returns/ECommerce.Modules.Returns.Infrastructure/ECommerce.Modules.Returns.Infrastructure.csproj",
+      "msbuildProject": "../../Modules/Returns/ECommerce.Modules.Returns.Infrastructure/ECommerce.Modules.Returns.Infrastructure.csproj"
+    },
     "ECommerce.Modules.Reviews.Api/1.0.0": {
       "type": "project",
       "path": "../../Modules/Reviews/ECommerce.Modules.Reviews.Api/ECommerce.Modules.Reviews.Api.csproj",
@@ -5652,6 +5724,7 @@
       "ECommerce.Modules.Discounts.Api >= 1.0.0",
       "ECommerce.Modules.Orders.Api >= 1.0.0",
       "ECommerce.Modules.Products.Api >= 1.0.0",
+      "ECommerce.Modules.Returns.Api >= 1.0.0",
       "ECommerce.Modules.Reviews.Api >= 1.0.0",
       "ECommerce.Modules.Users.Api >= 1.0.0",
       "ECommerce.Shared.Abstractions >= 1.0.0",
@@ -5695,6 +5768,9 @@
             },
             "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj": {
               "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Products/ECommerce.Modules.Products.Api/ECommerce.Modules.Products.Api.csproj"
+            },
+            "/Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Api/ECommerce.Modules.Returns.Api.csproj": {
+              "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Api/ECommerce.Modules.Returns.Api.csproj"
             },
             "/Users/maciejnet/Projects/E-Commerce/src/Modules/Reviews/ECommerce.Modules.Reviews.Api/ECommerce.Modules.Reviews.Api.csproj": {
               "projectPath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Reviews/ECommerce.Modules.Reviews.Api/ECommerce.Modules.Reviews.Api.csproj"

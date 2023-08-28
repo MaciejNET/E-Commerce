@@ -1,8 +1,9 @@
 using ECommerce.Modules.Orders.Domain.Carts.Entities;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
 using ECommerce.Modules.Orders.Domain.Orders.ValueObjects;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Time;
 
@@ -40,7 +41,7 @@ public class Order : AggregateRoot
         }
     }
 
-    internal static Order CreateFromCheckout(CheckoutCart checkoutCart, DateTime now)
+    internal static Order CreateFromCheckout(CheckoutCart checkoutCart, DateTime now, AggregateId? id = null)
     {
         var orderLines = checkoutCart.Items
             .Select((x, i) =>
@@ -59,7 +60,7 @@ public class Order : AggregateRoot
             })
             .ToList();
 
-        return new Order(checkoutCart.UserId, orderLines, checkoutCart.Shipment, checkoutCart.Payment, now);
+        return new Order(checkoutCart.UserId, orderLines, checkoutCart.Shipment, checkoutCart.Payment, now, id);
     }
     
     public void StartProcessing()
@@ -102,15 +103,26 @@ public class Order : AggregateRoot
 
         Status = OrderStatus.Canceled;
     }
+
+    public void PartlyReturn()
+    {
+        if (Status is not (OrderStatus.Completed or OrderStatus.PartlyReturned))
+        {
+            throw new InvalidOrderStatusChangeException(Status.ToString(), OrderStatus.PartlyReturned.ToString());
+        }
+
+        Status = OrderStatus.PartlyReturned;
+    }
+    
+    public void Return()
+    {
+        if (Status is not (OrderStatus.Completed or OrderStatus.PartlyReturned))
+        {
+            throw new InvalidOrderStatusChangeException(Status.ToString(), OrderStatus.PartlyReturned.ToString());
+        }
+
+        Status = OrderStatus.Returned;
+    }
     
     private Order() {}
-}
-
-public enum OrderStatus
-{
-    Placed,
-    InProgress,
-    Sent,
-    Completed,
-    Canceled
 }

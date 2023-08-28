@@ -18,7 +18,7 @@ public sealed class OrderPlacedHandler : IDomainEventHandler<OrderPlaced>
 
     public async Task HandleAsync(OrderPlaced @event)
     {
-        var order = Order.CreateFromCheckout(@event.CheckoutCart, @event.Now);
+        var order = Order.CreateFromCheckout(@event.CheckoutCart, @event.Now, @event.Id);
 
         await _orderRepository.AddAsync(order);
         _logger.LogInformation("Created order with ID: '{OrderId}'", order.Id.ToString());

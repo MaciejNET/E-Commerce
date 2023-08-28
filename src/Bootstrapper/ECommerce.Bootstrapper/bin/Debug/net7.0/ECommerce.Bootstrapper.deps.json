@@ -11,6 +11,7 @@
           "ECommerce.Modules.Discounts.Api": "1.0.0",
           "ECommerce.Modules.Orders.Api": "1.0.0",
           "ECommerce.Modules.Products.Api": "1.0.0",
+          "ECommerce.Modules.Returns.Api": "1.0.0",
           "ECommerce.Modules.Reviews.Api": "1.0.0",
           "ECommerce.Modules.Users.Api": "1.0.0",
           "ECommerce.Shared.Abstractions": "1.0.0",
@@ -1337,6 +1338,38 @@
           "ECommerce.Modules.Products.Core.dll": {}
         }
       },
+      "ECommerce.Modules.Returns.Api/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Returns.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Returns.Api.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Application/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Returns.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Returns.Application.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Domain/1.0.0": {
+        "dependencies": {
+          "ECommerce.Shared.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Returns.Domain.dll": {}
+        }
+      },
+      "ECommerce.Modules.Returns.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ECommerce.Modules.Returns.Application": "1.0.0"
+        },
+        "runtime": {
+          "ECommerce.Modules.Returns.Infrastructure.dll": {}
+        }
+      },
       "ECommerce.Modules.Reviews.Api/1.0.0": {
         "dependencies": {
           "ECommerce.Modules.Reviews.Core": "1.0.0"
@@ -2335,6 +2368,26 @@
       "sha512": ""
     },
     "ECommerce.Modules.Products.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Returns.Api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Returns.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Returns.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECommerce.Modules.Returns.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

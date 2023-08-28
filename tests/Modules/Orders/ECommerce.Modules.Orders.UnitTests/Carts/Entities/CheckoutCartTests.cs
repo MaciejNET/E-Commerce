@@ -2,7 +2,7 @@ using ECommerce.Modules.Orders.Domain.Carts.Entities;
 using ECommerce.Modules.Orders.Domain.Carts.Events;
 using ECommerce.Modules.Orders.Domain.Carts.Exceptions;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
 using ECommerce.Modules.Orders.UnitTests.Shared.Time;
 using ECommerce.Shared.Abstractions.Kernel.Types;

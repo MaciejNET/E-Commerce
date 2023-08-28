@@ -1,7 +1,7 @@
 using ECommerce.Modules.Orders.Application.Carts.Commands;
 using ECommerce.Modules.Orders.Application.Carts.DTO;
 using ECommerce.Modules.Orders.Application.Carts.Queries;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Shared.Abstractions.Commands;
 using ECommerce.Shared.Abstractions.Contexts;
 using ECommerce.Shared.Abstractions.Queries;

@@ -50,20 +50,20 @@ internal class CartController : BaseController
         return Ok();
     }
 
-    [HttpPut("{productId:guid}/increase-quantity")]
-    public async Task<ActionResult> IncreaseQuantity(Guid productId, int quantity)
+    [HttpPut("{cartItemId:guid}/increase-quantity")]
+    public async Task<ActionResult> IncreaseQuantity(Guid cartItemId, int quantity)
     {
-        var command = new IncreaseCartItemQuantity(productId, quantity);
+        var command = new IncreaseCartItemQuantity(cartItemId, quantity);
 
         await _commandDispatcher.SendAsync(command);
 
         return NoContent();
     }
     
-    [HttpPut("{productId:guid}/decrease-quantity")]
-    public async Task<ActionResult> DecreaseQuantity(Guid productId, int quantity)
+    [HttpPut("{cartItemId:guid}/decrease-quantity")]
+    public async Task<ActionResult> DecreaseQuantity(Guid cartItemId, int quantity)
     {
-        var command = new DecreaseCartItemQuantity(productId, quantity);
+        var command = new DecreaseCartItemQuantity(cartItemId, quantity);
 
         await _commandDispatcher.SendAsync(command);
 
@@ -79,7 +79,7 @@ internal class CartController : BaseController
         return Ok();
     }
 
-    [HttpPut]
+    [HttpPut("clear")]
     public async Task<ActionResult> Clear()
     {
         var id = _context.Identity.Id;

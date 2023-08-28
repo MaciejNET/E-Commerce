@@ -1,8 +1,9 @@
 using ECommerce.Modules.Orders.Domain.Carts.Entities;
 using ECommerce.Modules.Orders.Domain.Orders.Entities;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using FluentAssertions;
 

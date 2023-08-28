@@ -1,4 +1,4 @@
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Shared.Abstractions.Commands;
 
 namespace ECommerce.Modules.Orders.Application.Carts.Commands;

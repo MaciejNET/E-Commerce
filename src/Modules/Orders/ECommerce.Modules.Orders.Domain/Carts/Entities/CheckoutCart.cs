@@ -1,7 +1,7 @@
 using ECommerce.Modules.Orders.Domain.Carts.Events;
 using ECommerce.Modules.Orders.Domain.Carts.Exceptions;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
-using ECommerce.Modules.Orders.Domain.Shared.Entities;
+using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Time;
@@ -51,7 +51,7 @@ public class CheckoutCart : AggregateRoot
         IncrementVersion();
     }
 
-    public void PlaceOrder(IClock clock)
+    public void PlaceOrder(IClock clock, AggregateId? orderId = null)
     {
         foreach (var item in Items)
         {
@@ -63,7 +63,7 @@ public class CheckoutCart : AggregateRoot
             AddEvent(new ProductBought(item.Product.Id, item.Quantity));
         }
         
-        AddEvent(new OrderPlaced(this, clock.CurrentDate()));
+        AddEvent(new OrderPlaced(this, clock.CurrentDate(), orderId));
         AddEvent(new CartCheckoutProcessed(UserId));
         IncrementVersion();
     }

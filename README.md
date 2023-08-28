@@ -9,16 +9,6 @@ Project created to study and practice modular monolith and DDD concepts.
 ## Architecture
 ![image](EcommerceArchitecture.jpg)
 
-## Modules
-|Module|Work progress|
-|:-------------:|:----:|
-|Users|✅|
-|Discounts|✅|
-|Products|✅|
-|Orders|✅|
-|Returns|⏳|
-|Reviews|✅|
-
 ## Technologies
 .NET 7, Docker, Sql Server(Azure SQL Edge), xUnit, Github Actions
 
@@ -28,3 +18,7 @@ docker-compose up -d
 cd src/Bootstrapper/ECommerce.Bootstrapper/
 dotnet run
 ```
+
+## Future development
+- Implement email service for sending confirmation emails
+- Create payment service
