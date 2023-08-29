@@ -26,6 +26,7 @@ internal sealed class OrderCanceledHandler : IEventHandler<OrderCanceled>
         }
         
         order.Cancel();
+        await _orderRepository.UpdateAsync(order);
         _logger.LogInformation("Order with ID: '{Id}' has been canceled", order.Id.ToString());
     }
 }

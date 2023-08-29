@@ -29,6 +29,12 @@ internal sealed class CartItemRepository : ICartItemRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task UpdateRangeAsync(IEnumerable<CartItem> items)
+    {
+        _context.CartItems.UpdateRange(items);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task DeleteAsync(CartItem item)
     {
         _context.CartItems.Remove(item);

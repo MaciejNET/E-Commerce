@@ -9,11 +9,13 @@ public sealed class RemoveProductFromCartHandler : ICommandHandler<RemoveProduct
 {
     private readonly ICartRepository _cartRepository;
     private readonly IProductRepository _productRepository;
+    private readonly ICartItemRepository _cartItemRepository;
 
-    public RemoveProductFromCartHandler(ICartRepository cartRepository, IProductRepository productRepository)
+    public RemoveProductFromCartHandler(ICartRepository cartRepository, IProductRepository productRepository, ICartItemRepository cartItemRepository)
     {
         _cartRepository = cartRepository;
         _productRepository = productRepository;
+        _cartItemRepository = cartItemRepository;
     }
 
     public async Task HandleAsync(RemoveProductFromCart command)
@@ -32,7 +34,10 @@ public sealed class RemoveProductFromCartHandler : ICommandHandler<RemoveProduct
             throw new ProductNotFoundException(command.ProductId);
         }
 
+        var cartItem = cart.Items.SingleOrDefault(x => x.Product == product);
+        
         cart.RemoveItem(product);
         await _cartRepository.UpdateAsync(cart);
+        await _cartItemRepository.DeleteAsync(cartItem);
     }
 }

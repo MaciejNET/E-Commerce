@@ -26,6 +26,7 @@ internal sealed class OrderSentHandler : IEventHandler<OrderSent>
         }
         
         order.Send();
+        await _orderRepository.UpdateAsync(order);
         _logger.LogInformation("Order with ID: '{Id}' has been sent", order.Id.ToString());
     }
 }

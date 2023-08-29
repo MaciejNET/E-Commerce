@@ -35,6 +35,7 @@ public sealed class CheckoutCartHandler : ICommandHandler<CheckoutCart>
             throw new CartAlreadyCheckedOutException(command.UserId);
         }
 
+        cart.Checkout();
         await _dispatcher.DispatchAsync(cart.Events.ToArray());
     }
 }

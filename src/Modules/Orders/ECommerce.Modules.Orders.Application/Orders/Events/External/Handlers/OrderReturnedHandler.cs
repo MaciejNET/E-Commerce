@@ -2,20 +2,20 @@ using ECommerce.Modules.Orders.Domain.Orders.Repositories;
 using ECommerce.Shared.Abstractions.Events;
 using Microsoft.Extensions.Logging;
 
-namespace ECommerce.Modules.Orders.Application.Orders.Commands.External.Handlers;
+namespace ECommerce.Modules.Orders.Application.Orders.Events.External.Handlers;
 
-internal sealed class OrderPartlyReturnedHandler : IEventHandler<OrderPartlyReturned>
+internal sealed class OrderReturnedHandler : IEventHandler<OrderReturned>
 {
     private readonly IOrderRepository _orderRepository;
-    private readonly ILogger<OrderPartlyReturnedHandler> _logger;
+    private readonly ILogger<OrderReturnedHandler> _logger;
 
-    public OrderPartlyReturnedHandler(IOrderRepository orderRepository, ILogger<OrderPartlyReturnedHandler> logger)
+    public OrderReturnedHandler(IOrderRepository orderRepository, ILogger<OrderReturnedHandler> logger)
     {
         _orderRepository = orderRepository;
         _logger = logger;
     }
 
-    public async Task HandleAsync(OrderPartlyReturned @event)
+    public async Task HandleAsync(OrderReturned @event)
     {
         var order = await _orderRepository.GetAsync(@event.Id);
 
@@ -25,8 +25,8 @@ internal sealed class OrderPartlyReturnedHandler : IEventHandler<OrderPartlyRetu
             return;
         }
         
-        order.PartlyReturn();
+        order.Return();
         await _orderRepository.UpdateAsync(order);
-        _logger.LogInformation("Order with ID: '{Id}' partly return", order.Id.Value);
+        _logger.LogInformation("Order with ID: '{Id}' return", order.Id.Value);
     }
 }

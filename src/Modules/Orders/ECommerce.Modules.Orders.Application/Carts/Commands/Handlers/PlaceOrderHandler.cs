@@ -35,6 +35,10 @@ public sealed class PlaceOrderHandler : ICommandHandler<PlaceOrder>
 
         var orderId = new AggregateId();
         checkoutCart.PlaceOrder(_clock, orderId);
+        await _messageBroker.PublishAsync(new OrderPlaced(
+            orderId,
+            _clock.CurrentDate(),
+            checkoutCart.Items.Select(x => x.Product.Sku)));
         await _dispatcher.DispatchAsync(checkoutCart.Events.ToArray());
 
         var integrationEvents = (IEnumerable<IMessage>)checkoutCart.Events.Select(x => x switch
@@ -44,10 +48,5 @@ public sealed class PlaceOrderHandler : ICommandHandler<PlaceOrder>
         });
 
         await _messageBroker.PublishAsync(integrationEvents.ToArray());
-        await _messageBroker.PublishAsync(new OrderPlaced(
-            orderId,
-            _clock.CurrentDate(),
-            checkoutCart.Items.Select(x => x.Product.Sku)));
-        await _checkoutCartRepository.DeleteAsync(checkoutCart);
     }
 }

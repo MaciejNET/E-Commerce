@@ -26,6 +26,7 @@ internal sealed class OrderCompletedHandler : IEventHandler<OrderCompleted>
         }
         
         order.Complete(@event.Now);
+        await _orderRepository.UpdateAsync(order);
         _logger.LogInformation("Order with ID: '{Id}' has been completed", order.Id.ToString());
     }
 }

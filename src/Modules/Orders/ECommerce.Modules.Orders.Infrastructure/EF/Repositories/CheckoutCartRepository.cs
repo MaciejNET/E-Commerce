@@ -18,17 +18,21 @@ internal sealed class CheckoutCartRepository : ICheckoutCartRepository
         => _context.CheckoutCarts
             .Include(x => x.Items)
             .ThenInclude(x => x.Product)
+            .Include(x => x.Discount)
+            .Include(x => x.Shipment)
             .SingleOrDefaultAsync(x => x.Id == id);
 
     public Task<CheckoutCart> GetAsync(UserId userId)
         => _context.CheckoutCarts
             .Include(x => x.Items)
             .ThenInclude(x => x.Product)
+            .Include(x => x.Discount)
+            .Include(x => x.Shipment)
             .SingleOrDefaultAsync(x => x.UserId == userId);
 
     public async Task AddAsync(CheckoutCart checkoutCart)
     {
-        await _context.CheckoutCarts.AddAsync(checkoutCart);
+        _context.CheckoutCarts.Entry(checkoutCart).State = EntityState.Added;
         await _context.SaveChangesAsync();
     }
 

@@ -26,7 +26,6 @@ internal sealed class CheckoutCartConfiguration : IEntityTypeConfiguration<Check
             .WithMany();
 
         builder.HasMany(x => x.Items)
-            .WithMany()
-            .UsingEntity("CheckoutsCartItems");
+            .WithOne();
     }
 }

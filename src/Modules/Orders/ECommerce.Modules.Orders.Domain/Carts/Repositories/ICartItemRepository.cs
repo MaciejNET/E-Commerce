@@ -8,6 +8,7 @@ public interface ICartItemRepository
     Task<CartItem> GetAsync(EntityId id);
     Task AddAsync(CartItem item);
     Task UpdateAsync(CartItem item);
+    Task UpdateRangeAsync(IEnumerable<CartItem> items);
     Task DeleteAsync(CartItem item);
     Task DeleteRangeAsync(IEnumerable<CartItem> items);
 }

@@ -26,6 +26,7 @@ internal sealed class OrderStartedProcessingHandler : IEventHandler<OrderStarted
         }
         
         order.StartProcessing();
+        await _orderRepository.UpdateAsync(order);
         _logger.LogInformation("Order with ID: '{Id}' started processing", order.Id.ToString());
     }
 }

@@ -19,12 +19,12 @@ internal sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.OwnsMany(x => x.Lines, lb =>
         {
+            lb.WithOwner().HasForeignKey("OrderId");
+            
             lb.Property(x => x.UnitPrice)
                 .HasPrecision(18, 2);
         });
 
         builder.OwnsOne(x => x.Shipment);
-        
-        
     }
 }
