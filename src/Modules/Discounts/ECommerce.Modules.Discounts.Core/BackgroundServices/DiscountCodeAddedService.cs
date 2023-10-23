@@ -14,6 +14,7 @@ internal class DiscountCodeAddedService : BackgroundService
     private readonly ILogger<DiscountCodeAddedService> _logger;
     private readonly IClock _clock;
     private readonly IServiceProvider _serviceProvider;
+    private readonly TimeSpan _period = TimeSpan.FromSeconds(60);
 
     public DiscountCodeAddedService(IMessageBroker messageBroker, ILogger<DiscountCodeAddedService> logger, IClock clock, IServiceProvider serviceProvider)
     {
@@ -25,7 +26,9 @@ internal class DiscountCodeAddedService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        using PeriodicTimer timer = new PeriodicTimer(_period);
+        
+        while (!stoppingToken.IsCancellationRequested && await timer.WaitForNextTickAsync(stoppingToken))
         {
             using var scope = _serviceProvider.CreateScope();
             var productDiscountRepository = scope.ServiceProvider.GetRequiredService<IDiscountCodeRepository>();
@@ -40,8 +43,6 @@ internal class DiscountCodeAddedService : BackgroundService
                     newDiscountCode.Percentage, newDiscountCode.Products.Select(x => x.Id).ToList()));
                 _logger.LogInformation("New discount code: '{Code}' added", newDiscountCode.Code);
             }
-
-            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
         }
     }
 }

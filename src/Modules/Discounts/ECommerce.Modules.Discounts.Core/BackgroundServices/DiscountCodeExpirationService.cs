@@ -14,6 +14,7 @@ internal class DiscountCodeExpirationService : BackgroundService
     private readonly ILogger<DiscountCodeExpirationService> _logger;
     private readonly IClock _clock;
     private readonly IServiceProvider _serviceProvider;
+    private readonly TimeSpan _period = TimeSpan.FromSeconds(60);
 
     public DiscountCodeExpirationService(IMessageBroker messageBroker, ILogger<DiscountCodeExpirationService> logger, IClock clock, IServiceProvider serviceProvider)
     {
@@ -25,10 +26,9 @@ internal class DiscountCodeExpirationService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        using PeriodicTimer timer = new PeriodicTimer(_period);
+        while (!stoppingToken.IsCancellationRequested && await timer.WaitForNextTickAsync(stoppingToken))
         {
-
-
             using var scope = _serviceProvider.CreateScope();
             var discountCodeRepository = scope.ServiceProvider.GetRequiredService<IDiscountCodeRepository>();
             var currentDate = _clock.CurrentDate();
@@ -40,8 +40,6 @@ internal class DiscountCodeExpirationService : BackgroundService
                 _logger.LogInformation("Expired discount code: '{Code}' with ID: '{Id}' has been processed",
                     expiredCode.Code, expiredCode.Id);
             }
-
-            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
         }
     }
 }
