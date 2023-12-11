@@ -21,3 +21,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/obj/Debug/net7.0/refint/ECommerce.Modules.Orders.Api.dll
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/obj/Debug/net7.0/ECommerce.Modules.Orders.Api.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/obj/Debug/net7.0/ref/ECommerce.Modules.Orders.Api.dll
+/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/obj/Debug/net7.0/ECommerce.Modules.Orders.Api.sourcelink.json

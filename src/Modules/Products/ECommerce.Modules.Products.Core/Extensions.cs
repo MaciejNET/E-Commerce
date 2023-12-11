@@ -15,7 +15,7 @@ internal static class Extensions
 {
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
-        services.AddAzureSqlEdge<ProductsDbContext>();
+        services.AddSqlServer<ProductsDbContext>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IProductService, ProductService>();

@@ -70,10 +70,6 @@ namespace ECommerce.Modules.Discounts.Core.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("NewPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
@@ -112,6 +108,29 @@ namespace ECommerce.Modules.Discounts.Core.DAL.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.OwnsOne("ECommerce.Shared.Abstractions.Kernel.Types.Price", "NewPrice", b1 =>
+                        {
+                            b1.Property<Guid>("ProductDiscountId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasPrecision(18, 2)
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProductDiscountId");
+
+                            b1.ToTable("ProductDiscounts", "discounts");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProductDiscountId");
+                        });
+
+                    b.Navigation("NewPrice");
 
                     b.Navigation("Product");
                 });

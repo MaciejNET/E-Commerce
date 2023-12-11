@@ -17,3 +17,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/obj/Debug/net7.0/refint/ECommerce.Modules.Users.Api.dll
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/obj/Debug/net7.0/ECommerce.Modules.Users.Api.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/obj/Debug/net7.0/ref/ECommerce.Modules.Users.Api.dll
+/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Api/obj/Debug/net7.0/ECommerce.Modules.Users.Api.sourcelink.json

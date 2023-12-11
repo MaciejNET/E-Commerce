@@ -17,3 +17,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Application/obj/Debug/net7.0/refint/ECommerce.Modules.Returns.Application.dll
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Application/obj/Debug/net7.0/ECommerce.Modules.Returns.Application.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Application/obj/Debug/net7.0/ref/ECommerce.Modules.Returns.Application.dll
+/Users/maciejnet/Projects/E-Commerce/src/Modules/Returns/ECommerce.Modules.Returns.Application/obj/Debug/net7.0/ECommerce.Modules.Returns.Application.sourcelink.json

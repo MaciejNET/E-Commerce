@@ -80,7 +80,7 @@ internal static class Extensions
         services.AddEvents(assemblies);
         services.AddDomainEvents(assemblies);
         services.AddMessaging();
-        services.AddAzureSqlEdge();
+        services.AddSqlServer();
         services.AddSingleton<IClock, UtcClock>();
         services.AddHostedService<AppInitializer>();
         services.AddControllers()

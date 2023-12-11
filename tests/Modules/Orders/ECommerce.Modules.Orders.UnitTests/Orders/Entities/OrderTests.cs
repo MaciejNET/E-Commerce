@@ -16,10 +16,11 @@ public class OrderTests
     {
         var now = DateTime.Now;
         var userId = new UserId(Guid.NewGuid());
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10M, 5);
-        var cart = Cart.Create(new AggregateId(), userId);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10M, Currency.PLN), 5);
+        var cart = Cart.Create(new AggregateId(), userId, Currency.PLN);
         cart.AddItem(product, 3);
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
         var discount = Discount.Create(new AggregateId(), "CODE123", 10, new[] {product});
         var shipment = new Shipment("City", "Street", 123, "Receiver");
         var paymentMethod = PaymentMethod.Cashless;
@@ -39,10 +40,11 @@ public class OrderTests
     {
         var now = DateTime.Now;
         var userId = new UserId(Guid.NewGuid());
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
-        var cart = Cart.Create(new AggregateId(), userId);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10M, Currency.PLN), 5);
+        var cart = Cart.Create(new AggregateId(), userId, Currency.PLN);
         cart.AddItem(product, 3);
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
         var shipment = new Shipment("City", "Street", 123, "Receiver");
         var paymentMethod = PaymentMethod.Cashless;
         checkoutCart.SetShipment(shipment);
@@ -157,10 +159,11 @@ public class OrderTests
     private Order CreateOrder()
     {
         var userId = new UserId(Guid.NewGuid());
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
-        var cart = new Cart(new AggregateId(), userId);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10M, Currency.PLN), 5);
+        var cart = Cart.Create(new AggregateId(), userId, Currency.PLN);
         cart.AddItem(product, 3);
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
         var shipment = new Shipment("City", "Street", 123, "Receiver");
         var paymentMethod = PaymentMethod.Cashless;
         checkoutCart.SetShipment(shipment);

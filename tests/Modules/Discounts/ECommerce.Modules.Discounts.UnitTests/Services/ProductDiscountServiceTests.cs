@@ -6,6 +6,8 @@ using ECommerce.Modules.Discounts.Core.Repositories;
 using ECommerce.Modules.Discounts.Core.Services;
 using ECommerce.Modules.Discounts.Core.Validators;
 using ECommerce.Modules.Discounts.UnitTests.Time;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
+using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Messaging;
 using ECommerce.Shared.Abstractions.Time;
 using FluentAssertions;
@@ -22,7 +24,7 @@ public class ProductDiscountServiceTests
         var dto = new ProductDiscountDto
         {
             Id = Guid.NewGuid(),
-            NewPrice = 14.22M,
+            NewPrice = new Price(14.22M, Currency.PLN),
             ProductId = Guid.NewGuid(),
             ValidFrom = _clock.CurrentDate().AddHours(2),
             ValidTo = _clock.CurrentDate().AddHours(2).AddDays(2)
@@ -65,7 +67,7 @@ public class ProductDiscountServiceTests
         var dto = new ProductDiscountDto
         {
             Id = Guid.NewGuid(),
-            NewPrice = 14.22M,
+            NewPrice = new Price(14.22M, Currency.PLN),
             ProductId = Guid.NewGuid(),
             ValidFrom = _clock.CurrentDate().AddHours(2),
             ValidTo = _clock.CurrentDate().AddHours(2).AddDays(2)
@@ -97,7 +99,7 @@ public class ProductDiscountServiceTests
         var dto = new ProductDiscountDto
         {
             Id = Guid.NewGuid(),
-            NewPrice = 14.22M,
+            NewPrice = new Price(14.22M, Currency.PLN),
             ProductId = Guid.NewGuid(),
             ValidFrom = _clock.CurrentDate().AddHours(-2),
             ValidTo = _clock.CurrentDate().AddHours(2).AddDays(2)
@@ -129,7 +131,7 @@ public class ProductDiscountServiceTests
         var dto = new ProductDiscountDto
         {
             Id = Guid.NewGuid(),
-            NewPrice = 14.22M,
+            NewPrice = new Price(14.22M, Currency.PLN),
             ProductId = Guid.NewGuid(),
             ValidFrom = _clock.CurrentDate().AddHours(2),
             ValidTo = _clock.CurrentDate().AddHours(2).AddDays(2)

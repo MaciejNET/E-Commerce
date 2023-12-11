@@ -17,3 +17,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/obj/Debug/net7.0/refint/ECommerce.Modules.Discounts.Api.dll
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/obj/Debug/net7.0/ECommerce.Modules.Discounts.Api.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/obj/Debug/net7.0/ref/ECommerce.Modules.Discounts.Api.dll
+/Users/maciejnet/Projects/E-Commerce/src/Modules/Discounts/ECommerce.Modules.Discounts.Api/obj/Debug/net7.0/ECommerce.Modules.Discounts.Api.sourcelink.json

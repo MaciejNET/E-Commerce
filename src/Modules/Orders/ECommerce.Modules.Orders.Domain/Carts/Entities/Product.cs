@@ -7,11 +7,11 @@ public class Product : AggregateRoot
 {
     public string Name { get; private set; }
     public string Sku { get; private set; }
-    public decimal StandardPrice { get; private set; }
-    public decimal? DiscountedPrice { get; private set; }
+    public Price StandardPrice { get; private set; }
+    public Price? DiscountedPrice { get; private set; }
     public int StockQuantity { get; private set; }
 
-    public Product(AggregateId id, string name, string sku, decimal standardPrice, int stockQuantity, decimal? discountedPrice = null)
+    public Product(AggregateId id, string name, string sku, Price standardPrice, int stockQuantity, Price? discountedPrice = null)
     {
         Id = id;
         Name = name;
@@ -38,13 +38,13 @@ public class Product : AggregateRoot
         IncrementVersion();
     }
 
-    public void SetPrice(decimal price)
+    public void SetPrice(Price price)
     {
         StandardPrice = price;
         IncrementVersion();
     }
 
-    public void SetDiscountedPrice(decimal discountedPrice)
+    public void SetDiscountedPrice(Price discountedPrice)
     {
         DiscountedPrice = discountedPrice;
         IncrementVersion();

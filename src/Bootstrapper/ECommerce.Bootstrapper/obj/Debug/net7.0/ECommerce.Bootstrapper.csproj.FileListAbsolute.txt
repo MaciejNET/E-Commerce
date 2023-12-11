@@ -164,3 +164,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Returns.Application.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Returns.Domain.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/bin/Debug/net7.0/ECommerce.Modules.Returns.Infrastructure.pdb
+/Users/maciejnet/Projects/E-Commerce/src/Bootstrapper/ECommerce.Bootstrapper/obj/Debug/net7.0/ECommerce.Bootstrapper.sourcelink.json

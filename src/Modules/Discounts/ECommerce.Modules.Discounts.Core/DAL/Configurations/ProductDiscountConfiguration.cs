@@ -1,4 +1,5 @@
 using ECommerce.Modules.Discounts.Core.Entities;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,7 +9,13 @@ internal sealed class ProductDiscountConfiguration : IEntityTypeConfiguration<Pr
 {
     public void Configure(EntityTypeBuilder<ProductDiscount> builder)
     {
-        builder.Property(x => x.NewPrice)
-            .HasPrecision(18, 2);
+        builder.OwnsOne(x => x.NewPrice, npb =>
+        {
+            npb.Property(x => x.Amount)
+                .HasPrecision(18, 2);
+
+            npb.Property(x => x.Currency)
+                .HasConversion(x => x.ToString(), v => (Currency) Enum.Parse(typeof(Currency), v));
+        });
     }
 }

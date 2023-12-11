@@ -7,4 +7,4 @@ public record CheckoutCartDto(Guid Id,
     PaymentMethod PaymentMethod,
     ShipmentDto Shipment,
     DiscountDto Discount,
-    IEnumerable<CartItemDto> CartItems);
+    IEnumerable<CheckoutCartItemDto> CartItems);

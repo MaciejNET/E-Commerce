@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UXXtHS7HBNhB/ep/zLUyu09fOtRGK8Iwyexd89CG6jKv+V3i08nGx/FD0h08MKpWT8Mf0j3HIl0Q/1zmAaKcgQ==",
+  "dgSpecHash": "CU1YROaNS3YIaqe/X4E822FZkTuYc1DqeCEBCUNitT37NGzQ3Cz8Qhm87n2PbUNvr63kV/CIED/jETqih1pyQg==",
   "success": true,
   "projectFilePath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Api/ECommerce.Modules.Orders.Api.csproj",
   "expectedPackageFiles": [

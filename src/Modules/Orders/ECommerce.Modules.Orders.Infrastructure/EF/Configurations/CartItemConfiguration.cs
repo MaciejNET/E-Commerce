@@ -13,7 +13,7 @@ internal sealed class CartItemConfiguration : IEntityTypeConfiguration<CartItem>
 
         builder.Property(x => x.Id)
             .HasConversion(x => x.Value, v => new EntityId(v));
-
+        
         builder.HasOne(x => x.Product)
             .WithMany();
     }

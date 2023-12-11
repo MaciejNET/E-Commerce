@@ -10,7 +10,7 @@ public static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services.AddAzureSqlEdge<ReturnsDbContext>();
+        services.AddSqlServer<ReturnsDbContext>();
         services.AddScoped<IReturnRepository, ReturnRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IOrderProductRepository, OrderProductRepository>();

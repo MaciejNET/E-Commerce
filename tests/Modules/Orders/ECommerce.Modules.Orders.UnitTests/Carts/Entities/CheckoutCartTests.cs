@@ -5,6 +5,7 @@ using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
 using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
 using ECommerce.Modules.Orders.UnitTests.Shared.Time;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Time;
 using FluentAssertions;
@@ -16,8 +17,9 @@ public class CheckoutCartTests
     [Fact]
     public void SetPayment_SetsPaymentMethod()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var checkoutCart = new CheckoutCart(cart);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
 
         checkoutCart.SetPayment(PaymentMethod.Cashless);
 
@@ -27,8 +29,9 @@ public class CheckoutCartTests
     [Fact]
     public void SetShipment_SetsShipment()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var checkoutCart = new CheckoutCart(cart);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
         var shipment = new Shipment("City", "Street", 123, "Receiver");
 
         checkoutCart.SetShipment(shipment);
@@ -39,13 +42,14 @@ public class CheckoutCartTests
     [Fact]
     public void ApplyDiscount_ProductDiscountWithValidProducts_AppliesDiscount()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 5);
         cart.AddItem(product, 3);
 
         var discount = Discount.Create(new AggregateId(), "CODE123", 10, new[] {product});
 
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
         checkoutCart.ApplyDiscount(discount);
 
         checkoutCart.Discount.Should().BeEquivalentTo(discount);
@@ -54,14 +58,15 @@ public class CheckoutCartTests
     [Fact]
     public void ApplyDiscount_ProductDiscountWithInvalidProducts_ThrowsDiscountApplicationException()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 5);
         cart.AddItem(product, 3);
 
         var discount = Discount.Create(new AggregateId(), "CODE123", 10,
-            new[] {new Product(new AggregateId(), "Product 2", "SKU456", 10, 5)});
+            new[] {new Product(new AggregateId(), "Product 2", "SKU456", new Price(10, Currency.PLN), 5)});
 
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
 
         checkoutCart.Invoking(c => c.ApplyDiscount(discount))
             .Should().Throw<DiscountApplicationException>();
@@ -70,11 +75,12 @@ public class CheckoutCartTests
     [Fact]
     public void PlaceOrder_NotEnoughStock_ThrowsNotEnoughProductsInStockException()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 5);
         cart.AddItem(product, 10);
 
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
 
         checkoutCart.Invoking(c => c.PlaceOrder(_clock))
             .Should().Throw<NotEnoughProductsInStockException>();
@@ -83,11 +89,12 @@ public class CheckoutCartTests
     [Fact]
     public void PlaceOrder_ValidCart_AddsEvents()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 5);
         cart.AddItem(product, 3);
 
-        var checkoutCart = new CheckoutCart(cart);
+        var checkoutCartItems = cart.Items.Select(x => new CheckoutCartItem(x.Quantity, x.Product, x.Product.DiscountedPrice ?? x.Product.StandardPrice)).ToList();
+        var checkoutCart = new CheckoutCart(cart, checkoutCartItems);
 
         checkoutCart.PlaceOrder(_clock);
 

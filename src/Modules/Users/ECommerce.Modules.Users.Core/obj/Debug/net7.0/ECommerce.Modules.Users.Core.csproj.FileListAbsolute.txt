@@ -15,3 +15,4 @@
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/obj/Debug/net7.0/refint/ECommerce.Modules.Users.Core.dll
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/obj/Debug/net7.0/ECommerce.Modules.Users.Core.pdb
 /Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/obj/Debug/net7.0/ref/ECommerce.Modules.Users.Core.dll
+/Users/maciejnet/Projects/E-Commerce/src/Modules/Users/ECommerce.Modules.Users.Core/obj/Debug/net7.0/ECommerce.Modules.Users.Core.sourcelink.json

@@ -41,12 +41,12 @@ internal sealed class ProductRepository : IProductRepository
 
         if (minPrice.HasValue)
         {
-            query = query.Where(x => x.StandardPrice >= minPrice);
+            query = query.Where(x => x.StandardPrice.Amount >= minPrice);
         }
 
         if (maxPrice.HasValue)
         {
-            query = query.Where(x => x.StandardPrice <= maxPrice);
+            query = query.Where(x => x.StandardPrice.Amount <= maxPrice);
         }
 
         return await query.ToListAsync();

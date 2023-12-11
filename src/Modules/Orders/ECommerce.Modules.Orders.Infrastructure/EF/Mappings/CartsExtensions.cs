@@ -21,6 +21,14 @@ public static class CartsExtensions
             Product: cartItem.Product.AsDto()
         );
 
+    internal static CheckoutCartItemDto AsDto(this CheckoutCartItem checkoutCartItem)
+        => new(
+            Id: checkoutCartItem.Id,
+            Quantity: checkoutCartItem.Quantity,
+            Price: checkoutCartItem.Price,
+            DiscountedPrice: checkoutCartItem.DiscountedPrice
+        );
+
     public static CartDto AsDto(this Cart cart)
         => new(
             Id: cart.Id,

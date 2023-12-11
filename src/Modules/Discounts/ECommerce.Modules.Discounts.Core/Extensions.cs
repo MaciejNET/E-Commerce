@@ -18,7 +18,7 @@ internal static class Extensions
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
         services.AddSingleton<DiscountDateValidator>();
-        services.AddAzureSqlEdge<DiscountsDbContext>();
+        services.AddSqlServer<DiscountsDbContext>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IDiscountCodeRepository, DiscountCodeRepository>();
         services.AddScoped<IProductDiscountRepository, ProductDiscountRepository>();

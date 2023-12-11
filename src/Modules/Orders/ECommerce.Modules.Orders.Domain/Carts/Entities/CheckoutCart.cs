@@ -3,6 +3,7 @@ using ECommerce.Modules.Orders.Domain.Carts.Exceptions;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
 using ECommerce.Modules.Orders.Domain.Shared.Enums;
 using ECommerce.Modules.Orders.Domain.Shared.ValueObjects;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Time;
 
@@ -10,19 +11,22 @@ namespace ECommerce.Modules.Orders.Domain.Carts.Entities;
 
 public class CheckoutCart : AggregateRoot
 {
-    private readonly List<CartItem> _items;
+    private readonly List<CheckoutCartItem> _items;
     
     public UserId UserId { get; private set; }
     public PaymentMethod Payment { get; private set; }
     public Shipment Shipment { get; private set; }
     public Discount Discount { get; private set; }
-    public IReadOnlyCollection<CartItem> Items => _items.AsReadOnly();
+    public Currency Currency { get; private set; }
+    public decimal TotalPrice => _items.Sum(x => x.Price.Amount);
+    public IReadOnlyCollection<CheckoutCartItem> Items => _items.AsReadOnly();
 
-    internal CheckoutCart(Cart cart, AggregateId? id = null)
+    internal CheckoutCart(Cart cart, List<CheckoutCartItem> items, AggregateId? id = null)
     {
         Id = id ?? new AggregateId(Guid.NewGuid());
         UserId = cart.UserId;
-        _items = cart.Items.ToList();
+        _items = items;
+        Currency = cart.PreferredCurrency;
     }
 
     public void SetPayment(PaymentMethod payment)
@@ -39,12 +43,15 @@ public class CheckoutCart : AggregateRoot
 
     public void ApplyDiscount(Discount discount)
     {
-        if (discount.Type == DiscountType.Product)
+        bool isApplied = false;
+        foreach (var item in Items)
         {
-            if (!Items.Select(x => x.Product).Any(product => discount.Products.Contains(product)))
-            {
-                throw new DiscountApplicationException();
-            }
+            isApplied = item.ApplyDiscount(discount);
+        }
+
+        if (!isApplied)
+        {
+            throw new DiscountApplicationException();
         }
         
         Discount = discount;

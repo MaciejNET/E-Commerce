@@ -43,6 +43,7 @@ internal class IdentityService : IIdentityService
                 Email = user.Email,
                 Role = user.Role,
                 Claims = user.Claims,
+                PreferedCurrency = user.PreferredCurrency,
                 CreatedAt = user.CreatedAt
             };
     }
@@ -98,10 +99,11 @@ internal class IdentityService : IIdentityService
             Password = password,
             Role = dto.Role?.ToLowerInvariant() ?? "user",
             CreatedAt = _clock.CurrentDate(),
+            PreferredCurrency = dto.PreferredCurrency,
             IsActive = true,
             Claims = dto.Claims ?? new Dictionary<string, IEnumerable<string>>()
         };
         await _userRepository.AddAsync(user);
-        await _messageBroker.PublishAsync(new SignedUp(user.Id, user.Email));
+        await _messageBroker.PublishAsync(new SignedUp(user.Id, user.Email, user.PreferredCurrency));
     }
 }

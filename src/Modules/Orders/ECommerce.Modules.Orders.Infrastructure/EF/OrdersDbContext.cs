@@ -11,6 +11,7 @@ internal class OrdersDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Discount> Discounts { get; set; }
     public DbSet<CheckoutCart> CheckoutCarts { get; set; }
+    public DbSet<CheckoutCartItem> CheckoutCartItems { get; set; }
     public DbSet<Order> Orders { get; set; }
 
     public OrdersDbContext(DbContextOptions<OrdersDbContext> options) : base(options)

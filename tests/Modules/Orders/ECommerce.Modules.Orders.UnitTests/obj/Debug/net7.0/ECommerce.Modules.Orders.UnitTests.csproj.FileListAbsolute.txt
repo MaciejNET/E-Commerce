@@ -210,3 +210,4 @@
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Orders/ECommerce.Modules.Orders.UnitTests/obj/Debug/net7.0/ECommerce.Modules.Orders.UnitTests.pdb
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Orders/ECommerce.Modules.Orders.UnitTests/obj/Debug/net7.0/ECommerce.Modules.Orders.UnitTests.genruntimeconfig.cache
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Orders/ECommerce.Modules.Orders.UnitTests/obj/Debug/net7.0/ref/ECommerce.Modules.Orders.UnitTests.dll
+/Users/maciejnet/Projects/E-Commerce/tests/Modules/Orders/ECommerce.Modules.Orders.UnitTests/obj/Debug/net7.0/ECommerce.Modules.Orders.UnitTests.sourcelink.json

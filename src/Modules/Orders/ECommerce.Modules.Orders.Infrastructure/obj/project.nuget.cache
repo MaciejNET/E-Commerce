@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T0xPB47Rsp0rZLUyaFKkjDN+Vcgf/Ms5FTezYWtROeXK0R+GaifqWjzC3pja1lKwN3tnDQ3rbQkRUGlu0f3qLw==",
+  "dgSpecHash": "EqF72kymnojq6IqFt2BQ2TJpgTbgCad2QCewGTlxPdrEK5yQYRaBIk8/8FvbFELwWb6r+ELL4h5orW94i/bkeA==",
   "success": true,
   "projectFilePath": "/Users/maciejnet/Projects/E-Commerce/src/Modules/Orders/ECommerce.Modules.Orders.Infrastructure/ECommerce.Modules.Orders.Infrastructure.csproj",
   "expectedPackageFiles": [

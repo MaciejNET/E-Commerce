@@ -5,17 +5,17 @@ namespace ECommerce.Shared.Infrastructure.AzureSqlEdge;
 
 public static class Extensions
 {
-    internal static IServiceCollection AddAzureSqlEdge(this IServiceCollection services)
+    internal static IServiceCollection AddSqlServer(this IServiceCollection services)
     {
-        var options = services.GetOptions<AzureSqlEdge>("mssql");
+        var options = services.GetOptions<SqlServer>("mssql");
         services.AddSingleton(options);
 
         return services;
     }
 
-    public static IServiceCollection AddAzureSqlEdge<T>(this IServiceCollection services) where T : DbContext
+    public static IServiceCollection AddSqlServer<T>(this IServiceCollection services) where T : DbContext
     {
-        var options = services.GetOptions<AzureSqlEdge>("azureSqlEdge");
+        var options = services.GetOptions<SqlServer>("sqlServer");
         services.AddDbContext<T>(x => x.UseSqlServer(options.ConnectionString));
 
         return services;

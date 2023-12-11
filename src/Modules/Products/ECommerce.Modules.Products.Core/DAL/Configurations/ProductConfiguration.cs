@@ -1,4 +1,6 @@
 using ECommerce.Modules.Products.Core.Entities;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
+using ECommerce.Shared.Abstractions.Kernel.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,11 +12,23 @@ internal sealed class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.HasIndex(x => x.Sku)
             .IsUnique();
+
+        builder.OwnsOne(x => x.StandardPrice, spb =>
+        {
+            spb.Property(x => x.Amount)
+                .HasPrecision(18, 2);
+            
+            spb.Property(x => x.Currency)
+                .HasConversion(x => x.ToString(), v => (Currency)Enum.Parse(typeof(Currency), v));
+        });
         
-        builder.Property(x => x.StandardPrice)
-            .HasPrecision(18, 2);
-        
-        builder.Property(x => x.DiscountedPrice)
-            .HasPrecision(18, 2);
+        builder.OwnsOne(x => x.DiscountedPrice, spb =>
+        {
+            spb.Property(x => x.Amount)
+                .HasPrecision(18, 2);
+            
+            spb.Property(x => x.Currency)
+                .HasConversion(x => x.ToString(), v => (Currency)Enum.Parse(typeof(Currency), v));
+        });
     }
 }

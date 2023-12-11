@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a5d7WzVyaoZcAzqs2rZoZRjQnh0NijFyCQ1FhM+IhpsXwiEvv3bj/in0FsDydDl/azMmBjU8u4i8/e/uJ1JWRw==",
+  "dgSpecHash": "2JBMsgUBP6klLlG9NXmQWSYhMq7BPvMT7qqgcI5y+ceZlM5vP99Z62de1PNeHcli9V7O1C9pI7vrjhFcCRMptA==",
   "success": true,
   "projectFilePath": "/Users/maciejnet/Projects/E-Commerce/tests/Modules/Orders/ECommerce.Modules.Orders.UnitTests/ECommerce.Modules.Orders.UnitTests.csproj",
   "expectedPackageFiles": [

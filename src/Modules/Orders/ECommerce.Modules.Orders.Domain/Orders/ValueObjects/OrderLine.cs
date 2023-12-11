@@ -1,4 +1,5 @@
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 
 namespace ECommerce.Modules.Orders.Domain.Orders.ValueObjects;
 
@@ -8,9 +9,10 @@ public record OrderLine
     public string Sku { get; private set; }
     public string Name { get; private set; }
     public decimal UnitPrice { get; private set; }
+    public string Currency { get; set; }
     public int Quantity { get; private set; }
 
-    public OrderLine(int orderLineNumber, string sku, string name, decimal unitPrice, int quantity)
+    public OrderLine(int orderLineNumber, string sku, string name, decimal unitPrice, Currency currency, int quantity)
     {
         if (quantity < 1)
         {
@@ -26,6 +28,9 @@ public record OrderLine
         Sku = sku;
         Name = name;
         UnitPrice = unitPrice;
+        Currency = currency.ToString();
         Quantity = quantity;
     }
+    
+    private OrderLine() {}
 }

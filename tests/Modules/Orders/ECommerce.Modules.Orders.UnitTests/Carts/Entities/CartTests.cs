@@ -1,7 +1,9 @@
 using ECommerce.Modules.Orders.Domain.Carts.Entities;
 using ECommerce.Modules.Orders.Domain.Carts.Events;
 using ECommerce.Modules.Orders.Domain.Carts.Exceptions;
+using ECommerce.Modules.Orders.Domain.Carts.Services;
 using ECommerce.Modules.Orders.Domain.Orders.Exceptions;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using FluentAssertions;
 
@@ -12,8 +14,8 @@ public class CartTests
     [Fact]
     public void AddItem_ExistingItem_ShouldIncreasesQuantitySuccessfully()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 20);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 20);
         cart.AddItem(product, 2);
 
         cart.AddItem(product, 3);
@@ -25,8 +27,8 @@ public class CartTests
     [Fact]
     public void AddItem_NewItem_ShouldAddsItemToCartSuccessfully()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 20);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 20);
 
         cart.AddItem(product, 2);
 
@@ -38,8 +40,8 @@ public class CartTests
     [Fact]
     public void RemoveItem_ExistingItem_ShouldRemovesItemFromCartSuccessfully()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 20);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 20);
         cart.AddItem(product, 2);
 
         cart.RemoveItem(product);
@@ -50,8 +52,8 @@ public class CartTests
     [Fact]
     public void RemoveItem_NonexistentItem_ShouldThrowsCartItemNotFoundException()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 20);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 20);
 
         cart.Invoking(c => c.RemoveItem(product))
             .Should().Throw<CartItemNotFoundException>();
@@ -60,7 +62,7 @@ public class CartTests
     [Fact]
     public void Clear_EmptyCart_ShouldAddsCartClearedEventSuccessfully()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
 
         cart.Clear();
 
@@ -70,32 +72,33 @@ public class CartTests
     [Fact]
     public void Checkout_EmptyCart_ShouldThrowsCannotCheckoutEmptyCartException()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-
-        cart.Invoking(c => c.Checkout())
-            .Should().Throw<CannotCheckoutEmptyCartException>();
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var exchangeRateService = new FakeExchangeRateService();
+        cart.Invoking(c => c.Checkout(exchangeRateService))
+            .Should().ThrowAsync<CannotCheckoutEmptyCartException>();
     }
 
     [Fact]
     public void Checkout_NotEnoughStock_ShouldThrowsNotEnoughProductsInStockException()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 3);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 3);
+        var exchangeRateService = new FakeExchangeRateService();
         cart.AddItem(product, 5);
 
-        cart.Invoking(c => c.Checkout())
-            .Should().Throw<NotEnoughProductsInStockException>();
+        cart.Invoking(c => c.Checkout(exchangeRateService))
+            .Should().ThrowAsync<NotEnoughProductsInStockException>();
     }
 
     [Fact]
-    public void Checkout_ValidCart_ShouldAddsCartCheckedOutEventSuccessfully()
+    public async Task Checkout_ValidCart_ShouldAddsCartCheckedOutEventSuccessfully()
     {
-        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()));
-        var product = new Product(new AggregateId(), "Product 1", "SKU123", 10, 5);
+        var cart = Cart.Create(new AggregateId(), new UserId(Guid.NewGuid()), Currency.PLN);
+        var product = new Product(new AggregateId(), "Product 1", "SKU123", new Price(10, Currency.PLN), 5);
+        var exchangeRateService = new FakeExchangeRateService();
         cart.AddItem(product, 3);
 
-        cart.Checkout();
-
+        await cart.Checkout(exchangeRateService);
         cart.Events.Should().ContainSingle(e => e is CartCheckedOut);
     }
 }

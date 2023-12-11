@@ -10,7 +10,7 @@ Project created to study and practice modular monolith and DDD concepts.
 ![image](EcommerceArchitecture.jpg)
 
 ## Technologies
-.NET 7, Docker, Sql Server(Azure SQL Edge), xUnit, Github Actions
+.NET 7, Docker, Sql Server, xUnit, Github Actions
 
 ## How to run
 ```bash

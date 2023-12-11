@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using ECommerce.Shared.Abstractions.Kernel.Types;
 
 namespace ECommerce.Modules.Products.Core.DTO;
 
@@ -24,8 +25,7 @@ internal class ProductDetailsDto
     public string Sku { get; set; }
     
     [Required]
-    [Range(1, 250000)]
-    public decimal Price { get; set; }
+    public Price Price { get; set; }
     public string ImageUrl { get; set; }
     
     [Range(1, int.MaxValue)]

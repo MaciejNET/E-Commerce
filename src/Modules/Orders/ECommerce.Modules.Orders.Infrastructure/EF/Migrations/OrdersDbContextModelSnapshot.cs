@@ -43,6 +43,10 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("PreferredCurrency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -67,9 +71,6 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                     b.Property<Guid?>("CartId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CheckoutCartId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid?>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
@@ -80,8 +81,6 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.HasIndex("CheckoutCartId");
-
                     b.HasIndex("ProductId");
 
                     b.ToTable("CartItems", "orders");
@@ -91,6 +90,9 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Currency")
+                        .HasColumnType("int");
 
                     b.Property<Guid?>("DiscountId")
                         .HasColumnType("uniqueidentifier");
@@ -113,6 +115,29 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                         .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("CheckoutCarts", "orders");
+                });
+
+            modelBuilder.Entity("ECommerce.Modules.Orders.Domain.Carts.Entities.CheckoutCartItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CheckoutCartId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CheckoutCartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CheckoutCartItems", "orders");
                 });
 
             modelBuilder.Entity("ECommerce.Modules.Orders.Domain.Carts.Entities.Discount", b =>
@@ -143,19 +168,11 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal?>("DiscountedPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sku")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<decimal>("StandardPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("StockQuantity")
                         .HasColumnType("int");
@@ -221,10 +238,6 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                         .WithMany("Items")
                         .HasForeignKey("CartId");
 
-                    b.HasOne("ECommerce.Modules.Orders.Domain.Carts.Entities.CheckoutCart", null)
-                        .WithMany("Items")
-                        .HasForeignKey("CheckoutCartId");
-
                     b.HasOne("ECommerce.Modules.Orders.Domain.Carts.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
@@ -268,6 +281,114 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                     b.Navigation("Shipment");
                 });
 
+            modelBuilder.Entity("ECommerce.Modules.Orders.Domain.Carts.Entities.CheckoutCartItem", b =>
+                {
+                    b.HasOne("ECommerce.Modules.Orders.Domain.Carts.Entities.CheckoutCart", null)
+                        .WithMany("Items")
+                        .HasForeignKey("CheckoutCartId");
+
+                    b.HasOne("ECommerce.Modules.Orders.Domain.Carts.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+
+                    b.OwnsOne("ECommerce.Shared.Abstractions.Kernel.Types.Price", "DiscountedPrice", b1 =>
+                        {
+                            b1.Property<Guid>("CheckoutCartItemId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasPrecision(18, 2)
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("CheckoutCartItemId");
+
+                            b1.ToTable("CheckoutCartItems", "orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CheckoutCartItemId");
+                        });
+
+                    b.OwnsOne("ECommerce.Shared.Abstractions.Kernel.Types.Price", "Price", b1 =>
+                        {
+                            b1.Property<Guid>("CheckoutCartItemId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasPrecision(18, 2)
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("CheckoutCartItemId");
+
+                            b1.ToTable("CheckoutCartItems", "orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("CheckoutCartItemId");
+                        });
+
+                    b.Navigation("DiscountedPrice");
+
+                    b.Navigation("Price");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ECommerce.Modules.Orders.Domain.Carts.Entities.Product", b =>
+                {
+                    b.OwnsOne("ECommerce.Shared.Abstractions.Kernel.Types.Price", "DiscountedPrice", b1 =>
+                        {
+                            b1.Property<Guid>("ProductId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasPrecision(18, 2)
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProductId");
+
+                            b1.ToTable("Products", "orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProductId");
+                        });
+
+                    b.OwnsOne("ECommerce.Shared.Abstractions.Kernel.Types.Price", "StandardPrice", b1 =>
+                        {
+                            b1.Property<Guid>("ProductId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("Amount")
+                                .HasPrecision(18, 2)
+                                .HasColumnType("decimal(18,2)");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ProductId");
+
+                            b1.ToTable("Products", "orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ProductId");
+                        });
+
+                    b.Navigation("DiscountedPrice");
+
+                    b.Navigation("StandardPrice");
+                });
+
             modelBuilder.Entity("ECommerce.Modules.Orders.Domain.Orders.Entities.Order", b =>
                 {
                     b.OwnsOne("ECommerce.Modules.Orders.Domain.Shared.ValueObjects.Shipment", "Shipment", b1 =>
@@ -305,6 +426,9 @@ namespace ECommerce.Modules.Orders.Infrastructure.EF.Migrations
                                 .HasColumnType("int");
 
                             SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<string>("Currency")
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Name")
                                 .HasColumnType("nvarchar(max)");

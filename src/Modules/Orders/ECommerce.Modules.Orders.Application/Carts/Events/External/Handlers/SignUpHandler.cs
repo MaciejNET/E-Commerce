@@ -29,7 +29,8 @@ internal class SignUpHandler : IEventHandler<SignedUp>
         
         cart = Cart.Create(
             new AggregateId(Guid.NewGuid()),
-            @event.UserId);
+            @event.UserId,
+            @event.PreferredCurrency);
 
         await _cartRepository.AddAsync(cart);
         _logger.LogInformation("Cart for user with ID: '{UserId}' has been created", @event.UserId);

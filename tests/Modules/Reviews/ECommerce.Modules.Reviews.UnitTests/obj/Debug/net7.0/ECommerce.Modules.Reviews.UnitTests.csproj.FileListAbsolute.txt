@@ -205,3 +205,4 @@
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Reviews/ECommerce.Modules.Reviews.UnitTests/bin/Debug/net7.0/Microsoft.AspNetCore.Metadata.dll
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Reviews/ECommerce.Modules.Reviews.UnitTests/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/maciejnet/Projects/E-Commerce/tests/Modules/Reviews/ECommerce.Modules.Reviews.UnitTests/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/maciejnet/Projects/E-Commerce/tests/Modules/Reviews/ECommerce.Modules.Reviews.UnitTests/obj/Debug/net7.0/ECommerce.Modules.Reviews.UnitTests.sourcelink.json

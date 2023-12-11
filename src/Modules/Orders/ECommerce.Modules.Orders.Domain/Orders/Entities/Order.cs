@@ -46,17 +46,8 @@ public class Order : AggregateRoot
         var orderLines = checkoutCart.Items
             .Select((x, i) =>
             {
-                if (checkoutCart.Discount is not null && (
-                    checkoutCart.Discount.Products.Contains(x.Product) ||
-                    checkoutCart.Discount.Type == DiscountType.Cart))
-                {
-                    var price = x.Product.DiscountedPrice ?? x.Product.StandardPrice;
-                    var discount = price * (checkoutCart.Discount.Percentage / 100M);
-                    var discountedPrice = price - discount;
-                    return new OrderLine(i, x.Product.Sku, x.Product.Name, discountedPrice, x.Quantity);    
-                }
-                
-                return new OrderLine(i, x.Product.Sku, x.Product.Name, x.Product.StandardPrice, x.Quantity);
+                var price = x.DiscountedPrice ?? x.Price;
+                return new OrderLine(i, x.Product.Sku, x.Product.Name, price.Amount, checkoutCart.Currency, x.Quantity);
             })
             .ToList();
 

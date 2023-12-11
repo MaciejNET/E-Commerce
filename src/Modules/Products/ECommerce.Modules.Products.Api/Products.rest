@@ -39,7 +39,10 @@ Content-Type: application/json
     "manufacturer": "Test",
     "description": "Lorem Ipsum",
     "sku": "TEST-SKU-333",
-    "price": 232.99,
+    "standardPrice": {
+      "amount": 233.33,
+      "currency": "PLN"
+    },
     "imageUrl": "testurl",
     "stockQuantity": 1000
 }
@@ -55,7 +58,10 @@ Content-Type: application/json
     "manufacturer": "Test",
     "description": "Lorem Ipsum",
     "sku": "TEST-SKU",
-    "price": 23.99,
+    "standardPrice": {
+      "amount": 233.33,
+      "currency": "PLN"
+    },
     "imageUrl": "testurl",
     "stockQuantity": 1000
 }

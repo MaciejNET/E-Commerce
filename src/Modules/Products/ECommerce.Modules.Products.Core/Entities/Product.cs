@@ -1,3 +1,5 @@
+using ECommerce.Shared.Abstractions.Kernel.Types;
+
 namespace ECommerce.Modules.Products.Core.Entities;
 
 internal class Product
@@ -9,8 +11,8 @@ internal class Product
     public string Manufacturer { get; set; }
     public string Description { get; set; }
     public string Sku { get; set; }
-    public decimal StandardPrice { get; set; }
-    public decimal? DiscountedPrice { get; set; }
+    public Price StandardPrice { get; set; }
+    public Price? DiscountedPrice { get; set; }
     public int StockQuantity { get; set; }
     public string ImageUrl { get; set; }
 

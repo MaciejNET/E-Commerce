@@ -1,4 +1,5 @@
 using ECommerce.Modules.Orders.Domain.Carts.Entities;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
 using ECommerce.Shared.Abstractions.Kernel.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,6 +17,9 @@ internal sealed class CartConfiguration : IEntityTypeConfiguration<Cart>
 
         builder.Property(x => x.UserId)
             .HasConversion(x => x.Value, v => new UserId(v));
+
+        builder.Property(x => x.PreferredCurrency)
+            .HasConversion(x => x.ToString(), v => (Currency) Enum.Parse(typeof(Currency), v));
 
         builder.HasIndex(x => x.UserId)
             .IsUnique();

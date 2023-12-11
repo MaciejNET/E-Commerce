@@ -18,7 +18,7 @@ internal static class Extensions
 {
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
-        services.AddAzureSqlEdge<UsersDbContext>();
+        services.AddSqlServer<UsersDbContext>();
         services.AddSingleton<PasswordValidator>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();

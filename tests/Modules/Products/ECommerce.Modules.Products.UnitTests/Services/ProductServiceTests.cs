@@ -4,6 +4,8 @@ using ECommerce.Modules.Products.Core.Events;
 using ECommerce.Modules.Products.Core.Exceptions;
 using ECommerce.Modules.Products.Core.Repositories;
 using ECommerce.Modules.Products.Core.Services;
+using ECommerce.Shared.Abstractions.Kernel.Enums;
+using ECommerce.Shared.Abstractions.Kernel.Types;
 using ECommerce.Shared.Abstractions.Messaging;
 using FluentAssertions;
 using Moq;
@@ -23,7 +25,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -63,7 +65,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -97,7 +99,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -144,7 +146,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            StandardPrice = 36.33M,
+            StandardPrice = new Price(36.33M, Currency.PLN),
             StockQuantity = 111,
             ImageUrl = "test/test"
         };
@@ -157,7 +159,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -199,7 +201,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -235,7 +237,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            StandardPrice = 36.33M,
+            StandardPrice = new Price(36.33M, Currency.PLN),
             StockQuantity = 111,
             ImageUrl = "test/test"
         };
@@ -248,7 +250,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            Price = 24.54M,
+            Price = new Price(24.54M, Currency.PLN),
             ImageUrl = "test/test",
             StockQuantity = 123
         };
@@ -287,7 +289,7 @@ public class ProductServiceTests
             Manufacturer = "test",
             Description = "test",
             Sku = "test",
-            StandardPrice = 36.33M,
+            StandardPrice = new Price(36.33M, Currency.PLN),
             StockQuantity = 111,
             ImageUrl = "test/test"
         };

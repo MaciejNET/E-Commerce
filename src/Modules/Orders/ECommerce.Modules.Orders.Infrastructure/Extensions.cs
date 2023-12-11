@@ -11,13 +11,14 @@ public static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services.AddAzureSqlEdge<OrdersDbContext>();
+        services.AddSqlServer<OrdersDbContext>();
         services.AddScoped<ICartRepository, CartRepository>();
         services.AddScoped<ICheckoutCartRepository, CheckoutCartRepository>();
         services.AddScoped<ICartItemRepository, CartItemRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IDiscountRepository, DiscountRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<ICheckoutCartItemRepository, CheckoutCartItemRepository>();
         return services;
     }
 }

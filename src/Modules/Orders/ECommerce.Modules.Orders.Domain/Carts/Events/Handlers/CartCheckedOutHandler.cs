@@ -7,19 +7,19 @@ namespace ECommerce.Modules.Orders.Domain.Carts.Events.Handlers;
 public sealed class CartCheckedOutHandler : IDomainEventHandler<CartCheckedOut>
 {
     private readonly ICheckoutCartRepository _checkoutCartRepository;
-    private readonly ICartItemRepository _cartItemRepository;
+    private readonly ICheckoutCartItemRepository _checkoutCartItemRepository;
 
-    public CartCheckedOutHandler(ICheckoutCartRepository checkoutCartRepository, ICartItemRepository cartItemRepository)
+    public CartCheckedOutHandler(ICheckoutCartRepository checkoutCartRepository, ICheckoutCartItemRepository checkoutCartItemRepository)
     {
         _checkoutCartRepository = checkoutCartRepository;
-        _cartItemRepository = cartItemRepository;
+        _checkoutCartItemRepository = checkoutCartItemRepository;
     }
 
     public async Task HandleAsync(CartCheckedOut @event)
     {
-        var checkoutCart = new CheckoutCart(@event.Cart);
+        var checkoutCart = new CheckoutCart(@event.Cart, @event.Items);
 
         await _checkoutCartRepository.AddAsync(checkoutCart);
-        await _cartItemRepository.UpdateRangeAsync(checkoutCart.Items);
+        await _checkoutCartItemRepository.AddRangeAsync(checkoutCart.Items);
     }
 }
