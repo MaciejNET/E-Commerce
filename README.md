@@ -8,7 +8,7 @@ This project is an Ecommerce Web API built using the modular monolith architectu
 [Here](https://miro.com/app/board/uXjVMy3rVUc=/?share_link_id=104061673349) you can find the Miro board with the Event Storming session.
 
 ## Architecture
-![image](EcommerceArchitecture.jpg)
+![image](img/modular-monolith-arch.png)
 
 ## Technologies
  - .NET 7
